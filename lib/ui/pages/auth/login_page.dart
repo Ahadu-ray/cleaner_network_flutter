@@ -109,7 +109,7 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomText(
-                      "Don’t have an account yet?,",
+                      "Don’t have an account yet?",
                       style: AppTheme.normalStyle().copyWith(fontSize: 16),
                     ),
                     InkWell(

@@ -221,7 +221,7 @@ class SignUpPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomText(
-                      "Already have an account?,",
+                      "Already have an account?",
                       style: AppTheme.normalStyle().copyWith(fontSize: 16),
                     ),
                     InkWell(

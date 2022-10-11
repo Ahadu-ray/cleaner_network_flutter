@@ -19,6 +19,9 @@ const user = "$_assetsPath/user.png";
 const wallet = "$_assetsPath/Wallet.png";
 const ovalGreen = "$_assetsPath/oval_green.png";
 const ovalRed = "$_assetsPath/oval_red.png";
+const onboarding1 = "$_assetsPath/Group 45616.png";
+const onboarding2 = "$_assetsPath/2nd Onbaording.png";
+const onboarding3 = "$_assetsPath/3rd onboarding.png";
 
 //fonts
 const montserrat = "Montserrat";

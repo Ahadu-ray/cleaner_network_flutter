@@ -1,7 +1,3 @@
-import 'dart:ui';
-
-import 'package:cleaner_network_flutter/utils/constants/asset_constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -24,6 +20,9 @@ class AppTheme {
   static const Color scaffoldBg = Color(0xFFF8F8F8);
   static const Color blueTitle = Color(0xFF222B45);
 
+  //from new
+  static const Color grey9 = Color(0xFFECECEC);
+  static const Color grey10 = Color(0xFFF7F8F8);
 //gradient
   static LinearGradient buttonGrad() => const LinearGradient(
         begin: Alignment.centerRight,
@@ -96,6 +95,12 @@ class AppTheme {
         fontWeight: FontWeight.w500,
       );
 
+  static TextStyle butTextC() => GoogleFonts.montserrat(
+        color: Colors.white,
+        fontSize: 13,
+        fontWeight: FontWeight.w500,
+      );
+
   static TextStyle calendarCardTitle() => GoogleFonts.montserrat(
         color: Colors.white,
         fontSize: 20,
@@ -160,6 +165,16 @@ class AppTheme {
         )
       ],
       borderRadius: BorderRadius.circular(32));
+  static BoxDecoration whiteButtonDecoration() => BoxDecoration(
+      color: Colors.white,
+      boxShadow: const [
+        BoxShadow(
+            color: Color.fromRGBO(24, 39, 75, 0.08),
+            offset: Offset(0, 8),
+            blurRadius: 16,
+            spreadRadius: -6)
+      ],
+      borderRadius: BorderRadius.circular(32));
 
   static BoxDecoration coloredButtonDecoration() => BoxDecoration(
       color: AppTheme.mainGreen, borderRadius: BorderRadius.circular(7));
@@ -167,6 +182,9 @@ class AppTheme {
   static BoxDecoration statusBoxDecoration() => BoxDecoration(
       color: AppTheme.mainGreen.withOpacity(0.1),
       borderRadius: BorderRadius.circular(6));
+
+  static BoxDecoration noDataCardDecoration() =>
+      BoxDecoration(color: grey10, borderRadius: BorderRadius.circular(16));
 
   static BoxDecoration iGradButtonDecoration() => BoxDecoration(
       border: Border.all(color: mainGreen),
@@ -194,6 +212,17 @@ class AppTheme {
       ],
       borderRadius: BorderRadius.circular(12));
 
+  static BoxDecoration mainCardDecoration2() => BoxDecoration(
+      color: Colors.white,
+      boxShadow: const [
+        BoxShadow(
+            color: Color.fromRGBO(29, 22, 23, 0.1),
+            offset: Offset(0, 10),
+            blurRadius: 40,
+            spreadRadius: 0)
+      ],
+      borderRadius: BorderRadius.circular(16));
+
   static BoxDecoration availTimeCardDecoration() => BoxDecoration(
       color: Colors.white,
       boxShadow: const [
@@ -204,6 +233,15 @@ class AppTheme {
             spreadRadius: 0)
       ],
       borderRadius: BorderRadius.vertical(top: Radius.circular(20)));
+
+  static BoxDecoration homeBottomDecoration() =>
+      BoxDecoration(color: Colors.white, boxShadow: [
+        BoxShadow(
+            color: Color.fromRGBO(0, 0, 0, 0.23),
+            offset: Offset(30, 12),
+            blurRadius: 20,
+            spreadRadius: 13)
+      ]);
 
   static BoxDecoration walletCardDecoration() => BoxDecoration(
       gradient: walletGrad(),
