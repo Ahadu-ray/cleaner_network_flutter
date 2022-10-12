@@ -9,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class CleanerLoginPage extends StatelessWidget {
+  const CleanerLoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,7 @@ class LoginPage extends StatelessWidget {
                         vPadding: 20,
                         title: "Sign In",
                         onPressed: () {
-                          Get.toNamed(Routes.homePage);
+                          Get.toNamed(Routes.cleanerHomePage);
                         },
                       ),
                     ],

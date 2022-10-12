@@ -100,7 +100,7 @@ class _OnBoardingPageState extends State<OnBoardingPage>
                 CustomButton(
                   title: "CUSTOMER",
                   onPressed: () {
-                    Get.toNamed(Routes.loginPagec);
+                    Get.toNamed(Routes.customerLoginPage);
                   },
                 ),
                 SizedBox(
@@ -110,7 +110,7 @@ class _OnBoardingPageState extends State<OnBoardingPage>
                   title: "CLEANER",
                   isWhite: true,
                   onPressed: () {
-                    Get.toNamed(Routes.loginPage);
+                    Get.toNamed(Routes.cleanerLoginPage);
                   },
                 ),
               ],

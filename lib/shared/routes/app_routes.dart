@@ -1,12 +1,12 @@
 abstract class Routes {
   //auth
   static const signupPage = "/signup";
-  static const loginPage = "/login";
-  static const loginPagec = "/login_c";
+  static const cleanerLoginPage = "/login_cleaner";
+  static const customerLoginPage = "/login_customer";
 
   //main
-  static const homePage = "/home";
-  static const homePageC = "/home_c";
+  static const cleanerHomePage = "/home_cleaner";
+  static const customerHomePage = "/home_customer";
   static const setAmountPage = "/set_amount";
   static const chooseMethodPage = "/choose_method";
   static const cardDetailPage = "/card_detail_page";

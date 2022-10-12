@@ -11,14 +11,14 @@ import 'package:cleaner_network_flutter/ui/widgets/selectable_dates.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ScheduleScreen extends StatefulWidget {
-  ScheduleScreen({Key? key}) : super(key: key);
+class CleanerScheduleScreen extends StatefulWidget {
+  CleanerScheduleScreen({Key? key}) : super(key: key);
 
   @override
-  State<ScheduleScreen> createState() => _ScheduleScreenState();
+  State<CleanerScheduleScreen> createState() => _CleanerScheduleScreenState();
 }
 
-class _ScheduleScreenState extends State<ScheduleScreen> {
+class _CleanerScheduleScreenState extends State<CleanerScheduleScreen> {
   List<String> tabs = ["Schedule", "Completed"];
 
   String selectedTab = "Schedule";

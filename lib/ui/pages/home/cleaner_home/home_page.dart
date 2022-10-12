@@ -1,19 +1,19 @@
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
-import 'package:cleaner_network_flutter/ui/screens/availability_screen.dart';
-import 'package:cleaner_network_flutter/ui/screens/job_claim_screen.dart';
-import 'package:cleaner_network_flutter/ui/screens/schedule_screen.dart';
+import 'package:cleaner_network_flutter/ui/screens/cleaner_home/availability_screen.dart';
+import 'package:cleaner_network_flutter/ui/screens/cleaner_home/job_claim_screen.dart';
+import 'package:cleaner_network_flutter/ui/screens/cleaner_home/schedule_screen.dart';
 import 'package:cleaner_network_flutter/ui/screens/wallet_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+class CleanerHomePage extends StatefulWidget {
+  CleanerHomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<CleanerHomePage> createState() => _CleanerHomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CleanerHomePageState extends State<CleanerHomePage> {
   int _currentIndex = 0;
 
   final _controller = PageController();
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
             physics: NeverScrollableScrollPhysics(),
             children: [
               JobClaimScreen(),
-              ScheduleScreen(),
+              CleanerScheduleScreen(),
               AvailabilityScreen(),
               WalletScreen()
             ],

@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 
-class LoginCPage extends StatefulWidget {
-  const LoginCPage({Key? key}) : super(key: key);
+class CustomerLoginPage extends StatefulWidget {
+  const CustomerLoginPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginCPage> createState() => _LoginCPageState();
+  State<CustomerLoginPage> createState() => _CustomerLoginPageState();
 }
 
-class _LoginCPageState extends State<LoginCPage> {
+class _CustomerLoginPageState extends State<CustomerLoginPage> {
   int selected = 0;
   @override
   Widget build(BuildContext context) {
@@ -150,7 +150,7 @@ class _LoginCPageState extends State<LoginCPage> {
                       vPadding: 20,
                       title: "Sign In",
                       onPressed: () {
-                        Get.toNamed(Routes.homePageC);
+                        Get.toNamed(Routes.customerHomePage);
                       },
                     ),
                   ],

@@ -9,14 +9,14 @@ import 'package:cleaner_network_flutter/ui/widgets/custom_grad_button.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
-class HomeCPage extends StatefulWidget {
-  HomeCPage({Key? key}) : super(key: key);
+class CustomerHomePage extends StatefulWidget {
+  CustomerHomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomeCPage> createState() => _HomeCPageState();
+  State<CustomerHomePage> createState() => _CustomerHomePageState();
 }
 
-class _HomeCPageState extends State<HomeCPage> {
+class _CustomerHomePageState extends State<CustomerHomePage> {
   int _currentIndex = 0;
 
   final _controller = PageController();
@@ -52,7 +52,7 @@ class _HomeCPageState extends State<HomeCPage> {
               physics: NeverScrollableScrollPhysics(),
               children: [
                 JobRequestsScreen(),
-                ScheduleScreen(),
+                CustomerScheduleScreen(),
                 CompletedScreen()
               ],
             ),

@@ -226,7 +226,8 @@ class SignUpPage extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Get.toNamed(Routes.loginPage);
+                        //this should be decided by what the user chose to sign in as
+                        Get.toNamed(Routes.cleanerLoginPage);
                       },
                       child: CustomText(
                         "Sign In",
