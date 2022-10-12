@@ -4,7 +4,7 @@ import 'package:cleaner_network_flutter/ui/components/appbar_chips.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_appbar.dart';
 import 'package:cleaner_network_flutter/ui/components/screen_with_appbar.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_field.dart';
-import 'package:cleaner_network_flutter/ui/widgets/custom_grad_button.dart';
+import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

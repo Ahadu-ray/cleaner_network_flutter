@@ -1,6 +1,7 @@
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
+import 'package:cleaner_network_flutter/ui/widgets/circled_icon_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_field.dart';
-import 'package:cleaner_network_flutter/ui/widgets/custom_grad_button.dart';
+import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
@@ -67,16 +68,8 @@ class _AddAvailableTimeDialogState extends State<AddAvailableTimeDialog> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      width: 25,
-                      height: 25,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: AppTheme.mainGreen,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      clipBehavior: Clip.hardEdge,
-                      child: Icon(Icons.add, color: Colors.white),
+                    CircledIconButton(
+                      iconData: Icons.add,
                     ),
                     SizedBox(
                       width: 5,

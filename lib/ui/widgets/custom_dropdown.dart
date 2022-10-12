@@ -46,7 +46,6 @@ class _CustomDropdownState extends State<CustomDropdown> {
                   items: itemBuilder(),
                   value: selectedValue,
                   onChanged: (value) {
-                    log(value.toString());
                     setState(() {
                       selectedValue = value as String;
                     });
@@ -76,7 +75,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
                   value: choice,
                   onChanged: (v) {}),
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.5,
+                width: MediaQuery.of(context).size.width * 0.47,
                 child: Text(choice,
                     overflow: TextOverflow.clip,
                     style: AppTheme.normalStyle()

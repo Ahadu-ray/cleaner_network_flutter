@@ -1,7 +1,9 @@
+import 'dart:developer';
+
 import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:cleaner_network_flutter/ui/screens/onboarding_screen.dart';
-import 'package:cleaner_network_flutter/ui/widgets/custom_grad_button.dart';
+import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:cleaner_network_flutter/utils/constants/asset_constants.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +20,7 @@ class _OnBoardingPageState extends State<OnBoardingPage>
     with TickerProviderStateMixin {
   TabController? controller;
   final PageController pageController = PageController(initialPage: 0);
+  int currentPage = 0;
   @override
   void initState() {
     super.initState();
@@ -25,15 +28,19 @@ class _OnBoardingPageState extends State<OnBoardingPage>
   }
 
   onPageChanged(int page) {
-    setState(() {
-      controller!.index = page;
-    });
+    if (page >= 0 && page <= 2) {
+      setState(() {
+        controller!.index = page;
+        currentPage = page;
+      });
+      log("page $currentPage");
+    }
   }
 
   List<String> subs = [
     "Here to help find you a quality cleaner.",
-    "You are at the right place. Choose your own price per hour, preferred hours, and distance you are willing to travel."
-        "Choose by price, locality, or recommendation."
+    "You are at the right place. Choose your own price per hour, preferred hours, and distance you are willing to travel.",
+    "Choose by price, locality, or recommendation."
   ];
   @override
   Widget build(BuildContext context) {
@@ -75,7 +82,7 @@ class _OnBoardingPageState extends State<OnBoardingPage>
                   height: 16,
                 ),
                 CustomText(
-                  subs[controller!.index],
+                  subs[currentPage],
                   style: AppTheme.normalStyle3(),
                   textAlign: TextAlign.center,
                 ),

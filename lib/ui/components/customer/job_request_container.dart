@@ -1,10 +1,7 @@
 import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
-import 'package:cleaner_network_flutter/ui/widgets/custom_grad_button.dart';
-import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
+import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/job_id_container.dart';
-import 'package:cleaner_network_flutter/ui/widgets/status_container.dart';
-import 'package:cleaner_network_flutter/utils/constants/asset_constants.dart';
 import 'package:cleaner_network_flutter/utils/functions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +9,19 @@ import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 
 class JobRequestContainer extends StatelessWidget {
-  JobRequestContainer({Key? key, this.pStatus, this.type}) : super(key: key);
-  //convert to real models when integrating
+  JobRequestContainer({Key? key, this.pStatus, this.type, this.availCleaners})
+      : super(key: key);
+  //convert these variables to real models when integrating
   String? type, pStatus;
+  int? availCleaners;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () {},
+        onTap: () {
+          if (availCleaners != null) {
+            Get.toNamed(Routes.cleanersList);
+          }
+        },
         child: Container(
           decoration: AppTheme.mainCardDecoration2(),
           padding: EdgeInsets.symmetric(horizontal: 18, vertical: 14),
@@ -47,7 +50,12 @@ class JobRequestContainer extends StatelessWidget {
                   color: AppTheme.red),
               if (type == null)
                 jobRequestRowBuilder(
-                    context, IconlyLight.tick_square, "Available Cleaners", "1",
+                    context,
+                    IconlyLight.tick_square,
+                    "Available Cleaners",
+                    availCleaners != null
+                        ? availCleaners.toString()
+                        : "Searching...",
                     color: AppTheme.blue),
               if (pStatus != null)
                 jobRequestRowBuilder(

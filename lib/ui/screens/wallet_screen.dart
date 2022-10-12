@@ -2,7 +2,7 @@ import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_appbar.dart';
 import 'package:cleaner_network_flutter/ui/components/screen_with_appbar.dart';
-import 'package:cleaner_network_flutter/ui/widgets/custom_grad_button.dart';
+import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:cleaner_network_flutter/ui/widgets/wallet_card.dart';
 import 'package:flutter/cupertino.dart';

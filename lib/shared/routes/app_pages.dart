@@ -3,6 +3,8 @@ import 'package:cleaner_network_flutter/ui/pages/auth/cleaner_auth/login_page.da
 import 'package:cleaner_network_flutter/ui/pages/auth/customer_auth/login_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/auth/signup_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/cleaner_home/home_page.dart';
+import 'package:cleaner_network_flutter/ui/pages/home/customer_home/book_appointment_page.dart';
+import 'package:cleaner_network_flutter/ui/pages/home/customer_home/cleaner_list_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/home_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/location_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/onboarding_page.dart';
@@ -26,11 +28,20 @@ abstract class AppPages {
       name: Routes.customerLoginPage,
       page: () => CustomerLoginPage(),
     ),
+    GetPage(
+      name: Routes.cleanersList,
+      page: () => CleanersList(),
+    ),
 
     //main
-
-    GetPage(name: Routes.cleanerHomePage, page: () => CleanerHomePage()),
+    //customer
     GetPage(name: Routes.customerHomePage, page: () => CustomerHomePage()),
+    GetPage(name: Routes.bookAppointment, page: () => BookAppointment()),
+
+    //cleaner
+    GetPage(name: Routes.cleanerHomePage, page: () => CleanerHomePage()),
+
+    //common
     GetPage(
       name: Routes.setAmountPage,
       page: () => SetAmountPage(),

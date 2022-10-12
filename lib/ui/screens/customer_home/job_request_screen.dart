@@ -19,9 +19,15 @@ class JobRequestsScreen extends StatelessWidget {
           Expanded(
               child: ListView.builder(
                   itemCount: 2,
+                  physics: BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return JobRequestContainer();
-                  }))
+                    return JobRequestContainer(
+                      availCleaners: index == 0 ? 1 : null,
+                    );
+                  })),
+          SizedBox(
+            height: 120,
+          )
         ],
       ),
     );

@@ -1,11 +1,11 @@
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_appbar.dart';
-import 'package:cleaner_network_flutter/ui/components/custom_map.dart';
+import 'package:cleaner_network_flutter/ui/components/map/custom_map.dart';
 import 'package:cleaner_network_flutter/ui/components/dialogs/accept_job_dialog.dart';
 import 'package:cleaner_network_flutter/ui/components/offer_container.dart';
 import 'package:cleaner_network_flutter/ui/components/screen_with_appbar.dart';
 import 'package:cleaner_network_flutter/ui/widgets/bottom_draggable.dart';
-import 'package:cleaner_network_flutter/ui/widgets/custom_grad_button.dart';
+import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:cleaner_network_flutter/ui/widgets/status_container.dart';
 import 'package:cleaner_network_flutter/utils/constants/asset_constants.dart';

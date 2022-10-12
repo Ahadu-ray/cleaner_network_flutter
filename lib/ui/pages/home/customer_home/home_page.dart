@@ -1,3 +1,4 @@
+import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:cleaner_network_flutter/ui/components/customer/appbar_chips_c.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_appbar.dart';
@@ -5,8 +6,9 @@ import 'package:cleaner_network_flutter/ui/components/screen_with_appbar.dart';
 import 'package:cleaner_network_flutter/ui/screens/customer_home/completed_screen.dart';
 import 'package:cleaner_network_flutter/ui/screens/customer_home/job_request_screen.dart';
 import 'package:cleaner_network_flutter/ui/screens/customer_home/schedule_screen.dart';
-import 'package:cleaner_network_flutter/ui/widgets/custom_grad_button.dart';
+import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 
 class CustomerHomePage extends StatefulWidget {
@@ -60,7 +62,12 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
               child: Container(
                 decoration: AppTheme.homeBottomDecoration(),
                 padding: EdgeInsets.symmetric(vertical: 29, horizontal: 37),
-                child: CustomButton(title: "Book Appointment"),
+                child: CustomButton(
+                  title: "Book Appointment",
+                  onPressed: () {
+                    Get.toNamed(Routes.bookAppointment);
+                  },
+                ),
               ),
             ),
           ],

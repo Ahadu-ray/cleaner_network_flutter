@@ -13,6 +13,9 @@ class AppTheme {
   static const Color grey6 = Color(0xFFEDF1F7);
   static const Color grey7 = Color(0xFF969696);
   static const Color grey8 = Color(0xFFD1D1D1);
+  static const Color grey9 = Color(0xFFECECEC);
+  static const Color grey10 = Color(0xFFF7F8F8);
+  static const Color grey11 = Color(0xFFD1D1D1);
   static const Color mainGreen = Color(0xFF9ED015);
   static const Color mainGreen2 = Color(0xFF618403);
   static const Color mainGreen3 = Color(0xFF7FA90C);
@@ -22,9 +25,8 @@ class AppTheme {
 
   static const Color red = Color(0xFF920000);
   static const Color blue = Color(0xFF406F95);
-  //from new
-  static const Color grey9 = Color(0xFFECECEC);
-  static const Color grey10 = Color(0xFFF7F8F8);
+  static const Color yellow = Color(0xFFAC9100);
+
 //gradient
   static LinearGradient buttonGrad() => const LinearGradient(
         begin: Alignment.centerRight,

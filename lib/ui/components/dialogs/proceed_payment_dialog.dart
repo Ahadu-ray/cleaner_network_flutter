@@ -1,5 +1,5 @@
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
-import 'package:cleaner_network_flutter/ui/widgets/custom_grad_button.dart';
+import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
