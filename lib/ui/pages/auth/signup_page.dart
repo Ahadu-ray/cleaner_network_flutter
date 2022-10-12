@@ -207,7 +207,7 @@ class SignUpPage extends StatelessWidget {
                       SizedBox(
                         height: 40,
                       ),
-                      GradientButton(
+                      CustomButton(
                         title: "Register",
                         vPadding: 20,
                       ),

@@ -45,13 +45,13 @@ class AcceptJobDialog extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GradientButton(
+                CustomButton(
                   title: "No",
                   inverted: true,
                   width: MediaQuery.of(context).size.width * 0.3,
                   vPadding: 16,
                 ),
-                GradientButton(
+                CustomButton(
                   title: "Yes",
                   width: MediaQuery.of(context).size.width * 0.3,
                   vPadding: 16,

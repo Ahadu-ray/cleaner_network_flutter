@@ -2,8 +2,8 @@ import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
-class GradientButton extends StatelessWidget {
-  GradientButton(
+class CustomButton extends StatelessWidget {
+  CustomButton(
       {Key? key,
       required this.title,
       this.width,
@@ -12,6 +12,7 @@ class GradientButton extends StatelessWidget {
       this.inverted = false,
       this.isGradient = true,
       this.isWhite = false,
+      this.color,
       this.vPadding = 20})
       : super(key: key);
   double? width;
@@ -23,6 +24,7 @@ class GradientButton extends StatelessWidget {
   bool isWhite;
   Function()? onPressed;
   Function(String)? onPressed2;
+  Color? color;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -36,7 +38,7 @@ class GradientButton extends StatelessWidget {
                 ? AppTheme.iGradButtonDecoration()
                 : isGradient
                     ? AppTheme.gradButtonDecoration()
-                    : AppTheme.coloredButtonDecoration(),
+                    : AppTheme.coloredButtonDecoration().copyWith(color: color),
         padding: EdgeInsets.symmetric(vertical: vPadding, horizontal: 20),
         child: CustomText(
           title,

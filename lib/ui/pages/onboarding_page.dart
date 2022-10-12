@@ -97,7 +97,7 @@ class _OnBoardingPageState extends State<OnBoardingPage>
                 SizedBox(
                   height: 27,
                 ),
-                GradientButton(
+                CustomButton(
                   title: "CUSTOMER",
                   onPressed: () {
                     Get.toNamed(Routes.loginPagec);
@@ -106,7 +106,7 @@ class _OnBoardingPageState extends State<OnBoardingPage>
                 SizedBox(
                   height: 16,
                 ),
-                GradientButton(
+                CustomButton(
                   title: "CLEANER",
                   isWhite: true,
                   onPressed: () {

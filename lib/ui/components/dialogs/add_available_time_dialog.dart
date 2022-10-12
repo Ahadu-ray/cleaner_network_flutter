@@ -93,7 +93,7 @@ class _AddAvailableTimeDialogState extends State<AddAvailableTimeDialog> {
               SizedBox(
                 height: 57,
               ),
-              GradientButton(
+              CustomButton(
                 title: "Create Event",
                 isGradient: false,
                 vPadding: 16,

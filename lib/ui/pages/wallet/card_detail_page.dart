@@ -99,7 +99,7 @@ class _CardDetailPageState extends State<CardDetailPage> {
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 10),
-                    child: GradientButton(
+                    child: CustomButton(
                       title: "Make Payment",
                       vPadding: 20,
                     ),

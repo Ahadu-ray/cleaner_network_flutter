@@ -119,7 +119,7 @@ class _ChooseMethodPageState extends State<ChooseMethodPage> {
                     SizedBox(
                       height: 48,
                     ),
-                    GradientButton(
+                    CustomButton(
                       title: "Proceed",
                       vPadding: 20,
                       onPressed: () {

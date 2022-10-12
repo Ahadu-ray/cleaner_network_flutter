@@ -123,7 +123,7 @@ class _SetAmountPageState extends State<SetAmountPage> {
                       SizedBox(
                         height: 39,
                       ),
-                      GradientButton(
+                      CustomButton(
                         title: "Continue",
                         vPadding: 20,
                         onPressed: () {

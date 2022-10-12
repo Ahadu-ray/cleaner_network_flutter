@@ -1,5 +1,5 @@
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
-import 'package:cleaner_network_flutter/ui/components/appbar_chips_c.dart';
+import 'package:cleaner_network_flutter/ui/components/customer/appbar_chips_c.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_appbar.dart';
 import 'package:cleaner_network_flutter/ui/components/screen_with_appbar.dart';
 import 'package:cleaner_network_flutter/ui/screens/customer_home/completed_screen.dart';
@@ -28,8 +28,21 @@ class _HomeCPageState extends State<HomeCPage> {
         appBar: CustomAppBar(
           title: "Appointments",
           onRightIcon: () {},
-          extra: SelectableCChips(
-              onChange: [], tabs: ["Job Requests", "Schedule", "Completed"]),
+          extra: SelectableCChips(onChange: [
+            () {
+              _controller.jumpToPage(0);
+            },
+            () {
+              _controller.jumpToPage(1);
+            },
+            () {
+              _controller.jumpToPage(2);
+            },
+          ], tabs: [
+            "Job Requests",
+            "Schedule",
+            "Completed"
+          ]),
         ),
         child: Stack(
           alignment: Alignment.bottomCenter,
@@ -47,7 +60,7 @@ class _HomeCPageState extends State<HomeCPage> {
               child: Container(
                 decoration: AppTheme.homeBottomDecoration(),
                 padding: EdgeInsets.symmetric(vertical: 29, horizontal: 37),
-                child: GradientButton(title: "Book Appointment"),
+                child: CustomButton(title: "Book Appointment"),
               ),
             ),
           ],

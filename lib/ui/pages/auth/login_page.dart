@@ -85,7 +85,7 @@ class LoginPage extends StatelessWidget {
                       SizedBox(
                         height: 40,
                       ),
-                      GradientButton(
+                      CustomButton(
                         vPadding: 20,
                         title: "Sign In",
                         onPressed: () {
@@ -99,7 +99,7 @@ class LoginPage extends StatelessWidget {
                   height: 40,
                 ),
                 CustomText(
-                  "or,",
+                  "or",
                   style: AppTheme.hintStyle().copyWith(fontSize: 16),
                 ),
                 SizedBox(

@@ -83,7 +83,7 @@ class OfferContainer extends StatelessWidget {
             if (status == "Job Accepted")
               Container(
                 margin: EdgeInsets.symmetric(vertical: 17, horizontal: 5),
-                child: GradientButton(
+                child: CustomButton(
                   title: "Click here Once Job is completed",
                   isGradient: false,
                   vPadding: 14,

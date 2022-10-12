@@ -20,6 +20,8 @@ class AppTheme {
   static const Color scaffoldBg = Color(0xFFF8F8F8);
   static const Color blueTitle = Color(0xFF222B45);
 
+  static const Color red = Color(0xFF920000);
+  static const Color blue = Color(0xFF406F95);
   //from new
   static const Color grey9 = Color(0xFFECECEC);
   static const Color grey10 = Color(0xFFF7F8F8);

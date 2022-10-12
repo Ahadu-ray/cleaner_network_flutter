@@ -60,6 +60,45 @@ Widget singleRowBuilder(
   );
 }
 
+Widget jobRequestRowBuilder(
+    BuildContext context, IconData iconData, String title, String sub,
+    {Color color = Colors.black}) {
+  return Container(
+    margin: EdgeInsets.only(bottom: 19),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.33,
+              child: Row(
+                children: [
+                  Icon(
+                    iconData,
+                    color: AppTheme.mainGreen,
+                  ),
+                  SizedBox(
+                    width: 6,
+                  ),
+                  Expanded(
+                    child: CustomText(title,
+                        style: AppTheme.normalStyle3().copyWith(
+                          color: AppTheme.grey7,
+                        )),
+                  )
+                ],
+              ),
+            ),
+            Text(":", style: AppTheme.normalStyle3()),
+          ],
+        ),
+        Text(sub, style: AppTheme.normalStyle3().copyWith(color: color))
+      ],
+    ),
+  );
+}
+
 /// Determine the current position of the device.
 /// When the location services are not enabled or permissions
 /// are denied the `Future` will return an error.

@@ -28,7 +28,7 @@ class WalletScreen extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.all(50.0),
-            child: GradientButton(
+            child: CustomButton(
               vPadding: 20,
               title: "Add Money",
               onPressed: () {

@@ -83,7 +83,7 @@ class ProceedPaymentDialog extends StatelessWidget {
             SizedBox(
               height: 28,
             ),
-            GradientButton(
+            CustomButton(
               title: "Proceed to pay",
               onPressed: onDone,
               vPadding: 19,
@@ -91,7 +91,7 @@ class ProceedPaymentDialog extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-            GradientButton(
+            CustomButton(
               title: "Cancel",
               onPressed: onDone,
               inverted: true,

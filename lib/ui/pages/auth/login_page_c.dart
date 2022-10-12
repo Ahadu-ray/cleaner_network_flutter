@@ -146,7 +146,7 @@ class _LoginCPageState extends State<LoginCPage> {
                     SizedBox(
                       height: 40,
                     ),
-                    GradientButton(
+                    CustomButton(
                       vPadding: 20,
                       title: "Sign In",
                       onPressed: () {
@@ -160,7 +160,7 @@ class _LoginCPageState extends State<LoginCPage> {
                 height: 40,
               ),
               CustomText(
-                "or,",
+                "or",
                 style: AppTheme.hintStyle().copyWith(fontSize: 16),
               ),
               SizedBox(

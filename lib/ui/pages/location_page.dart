@@ -164,7 +164,7 @@ class LocationPage extends StatelessWidget {
                       Container(
                           margin: EdgeInsets.symmetric(
                               horizontal: 10, vertical: 33),
-                          child: GradientButton(
+                          child: CustomButton(
                             vPadding: 20,
                             title: "Accept Job",
                             onPressed: () {

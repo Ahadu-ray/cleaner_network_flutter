@@ -31,7 +31,7 @@ class ProceedPaymentDialog extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            GradientButton(
+            CustomButton(
               title: "ok",
               onPressed: onDone,
             )
