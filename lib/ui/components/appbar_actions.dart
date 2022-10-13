@@ -34,6 +34,7 @@ class AppbarActions extends StatelessWidget {
                     ),
                   ]),
                   onTap: () {
+                    Get.back();
                     Get.toNamed(type == "Cleaner"
                         ? Routes.cleanerProfilePage
                         : Routes.customerProfilePage);
@@ -54,6 +55,7 @@ class AppbarActions extends StatelessWidget {
                   ),
                 ]),
                 onTap: () {
+                  Get.back();
                   Get.toNamed(Routes.selectLanguagePage);
                 },
               )),
@@ -71,6 +73,7 @@ class AppbarActions extends StatelessWidget {
                   ),
                 ]),
                 onTap: () {
+                  Get.back();
                   Get.toNamed(Routes.helpPage);
                 },
               )),
