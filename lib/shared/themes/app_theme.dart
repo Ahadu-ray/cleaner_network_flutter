@@ -59,7 +59,10 @@ class AppTheme {
         fontSize: 15,
         fontWeight: FontWeight.w700,
       );
-
+  static TextStyle smallStyle() => GoogleFonts.montserrat(
+        fontSize: 13,
+        fontWeight: FontWeight.w300,
+      );
   static TextStyle normalStyle() => GoogleFonts.montserrat(
         fontSize: 14,
       );

@@ -1,4 +1,5 @@
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
+import 'package:cleaner_network_flutter/ui/components/appbar_actions.dart';
 import 'package:cleaner_network_flutter/ui/components/appbar_chips.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_appbar.dart';
 import 'package:cleaner_network_flutter/ui/components/offer_container.dart';
@@ -28,6 +29,7 @@ class _JobClaimScreenState extends State<JobClaimScreen> {
         title: "Claim",
         withBg: true,
         hasBack: false,
+        action: AppbarActions(),
         extra: AppBarChips(
           tabs: tabs,
           onChange: [

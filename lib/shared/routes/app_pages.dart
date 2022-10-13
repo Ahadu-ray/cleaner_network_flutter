@@ -3,9 +3,13 @@ import 'package:cleaner_network_flutter/ui/pages/auth/cleaner_auth/login_page.da
 import 'package:cleaner_network_flutter/ui/pages/auth/customer_auth/login_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/auth/cleaner_auth/signup_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/auth/customer_auth/signup_page.dart';
+import 'package:cleaner_network_flutter/ui/pages/home/cleaner_home/cleaner_profile_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/cleaner_home/home_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/book_appointment_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/cleaner_list_page.dart';
+import 'package:cleaner_network_flutter/ui/pages/home/customer_home/cleaner_live_location_page.dart';
+import 'package:cleaner_network_flutter/ui/pages/home/customer_home/customer_profile_page.dart';
+import 'package:cleaner_network_flutter/ui/pages/home/customer_home/help_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/home_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/review_cleaner_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/view_cleaner_profile_page.dart';
@@ -13,6 +17,7 @@ import 'package:cleaner_network_flutter/ui/pages/home/customer_payment/booking_d
 import 'package:cleaner_network_flutter/ui/pages/home/customer_payment/customer_payment_options_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/location_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/onboarding_page.dart';
+import 'package:cleaner_network_flutter/ui/pages/select_language_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/wallet/card_detail_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/wallet/choose_method_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/wallet/set_amount_page.dart';
@@ -63,9 +68,22 @@ abstract class AppPages {
       page: () => BookingDetailsPage(),
     ),
 
+    GetPage(
+      name: Routes.cleanerLiveLocation,
+      page: () => CleanerLiveLocationPage(),
+    ),
+    GetPage(
+      name: Routes.customerProfilePage,
+      page: () => CustomerProfilePage(),
+    ),
+
     //cleaner
     GetPage(name: Routes.cleanerHomePage, page: () => CleanerHomePage()),
 
+    GetPage(
+      name: Routes.cleanerProfilePage,
+      page: () => CleanerProfilePage(),
+    ),
     //common
     GetPage(
       name: Routes.setAmountPage,
@@ -87,6 +105,14 @@ abstract class AppPages {
     GetPage(
       name: Routes.onboardingPage,
       page: () => OnBoardingPage(),
+    ),
+    GetPage(
+      name: Routes.selectLanguagePage,
+      page: () => SelectLanguagePage(),
+    ),
+    GetPage(
+      name: Routes.helpPage,
+      page: () => HelpPage(),
     ),
   ];
 }

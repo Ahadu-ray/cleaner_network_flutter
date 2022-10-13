@@ -1,5 +1,6 @@
 import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
+import 'package:cleaner_network_flutter/ui/components/profile_pic_setter.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_dropdown.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_field.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
@@ -51,47 +52,7 @@ class CleanerSignUpPage extends StatelessWidget {
                   Form(
                     child: Column(
                       children: [
-                        Stack(
-                          clipBehavior: Clip.none,
-                          alignment: Alignment.bottomRight,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  color: Colors.white,
-                                  border:
-                                      Border.all(color: AppTheme.mainGreen)),
-                              padding: EdgeInsets.all(15),
-                              child: Icon(
-                                IconlyBold.profile,
-                                color: AppTheme.mainGreen,
-                                size: 60,
-                              ),
-                            ),
-                            Container(
-                              height: 44,
-                              width: 44,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(22),
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        offset: Offset(0, 4),
-                                        blurRadius: 6,
-                                        color: Color.fromRGBO(0, 0, 0, 0.25))
-                                  ]),
-                              child: IconButton(
-                                iconSize: 27,
-                                icon: Icon(
-                                  IconlyBold.camera,
-                                  color: AppTheme.mainGreen,
-                                ),
-                                onPressed: () {},
-                              ),
-                            )
-                          ],
-                        ),
+                        ProfilePicSetter(),
                         SizedBox(
                           height: 30,
                         ),

@@ -27,6 +27,9 @@ const happyFace = "$_assetsPath/happy.png";
 const normalFace = "$_assetsPath/normal.png";
 const sadFace = "$_assetsPath/sad.png";
 const empty = "$_assetsPath/Empty Screen.png";
+const blueLocation = "$_assetsPath/blue_location.png";
+const vDash = "$_assetsPath/dash dash.png";
+const destination = "$_assetsPath/destination.png";
 const cancelAppointment = "$_assetsPath/Cancel Appointment.png";
 
 //fonts

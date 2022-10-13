@@ -1,5 +1,6 @@
 import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
+import 'package:cleaner_network_flutter/ui/components/appbar_actions.dart';
 import 'package:cleaner_network_flutter/ui/components/customer/appbar_chips_c.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_appbar.dart';
 import 'package:cleaner_network_flutter/ui/components/screen_with_appbar.dart';
@@ -30,7 +31,9 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
       body: ScreenWithAppBar(
         appBar: CustomAppBar(
           title: "Appointments",
-          onRightIcon: () {},
+          action: AppbarActions(
+            type: "Customer",
+          ),
           extra: SelectableCChips(onChange: [
             () {
               _controller.jumpToPage(0);

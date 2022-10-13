@@ -33,7 +33,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
         ),
         Container(
             width: MediaQuery.of(context).size.width * 0.93,
-            height: 56,
+            height: 66,
             decoration: AppTheme.fieldDecoration(),
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 23),
             child: DropdownButtonHideUnderline(

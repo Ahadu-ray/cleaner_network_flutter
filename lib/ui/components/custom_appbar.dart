@@ -9,21 +9,23 @@ class CustomAppBar extends StatelessWidget {
       {Key? key,
       required this.title,
       this.hasBack = true,
-      this.onRightIcon,
       this.withBg = false,
+      this.action,
+      this.height,
       this.extra})
       : super(key: key);
   String title;
   bool hasBack;
-  Function()? onRightIcon;
   bool withBg;
   Widget? extra;
+  Widget? action;
+  double? height;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
         width: MediaQuery.of(context).size.width,
-        height: extra != null ? 200 : 118,
+        height: height ?? (extra != null ? 200 : 118),
         decoration: BoxDecoration(
             gradient: AppTheme.appGrad(),
             color: Colors.white,
@@ -39,46 +41,34 @@ class CustomAppBar extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Column(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    hasBack
-                        ? IconButton(
-                            onPressed: () {
-                              Get.back();
-                            },
-                            icon: Icon(
-                              Icons.chevron_left,
-                              color: Colors.white,
-                              size: 40,
-                            ),
-                          )
-                        : SizedBox(
-                            width: 30,
-                          ),
-                    CustomText(title, style: AppTheme.butText()),
-                    onRightIcon != null
-                        ? IconButton(
-                            onPressed: onRightIcon,
-                            icon: Icon(
-                              Icons.more_vert,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                          )
-                        : SizedBox(
-                            width: 30,
-                          ),
-                  ],
-                ),
-                SizedBox(
-                  height: extra != null ? 10 : 20,
-                ),
-                extra ?? SizedBox()
+                hasBack
+                    ? IconButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        icon: Icon(
+                          Icons.chevron_left,
+                          color: Colors.white,
+                          size: 40,
+                        ),
+                      )
+                    : SizedBox(
+                        width: 30,
+                      ),
+                CustomText(title, style: AppTheme.butText()),
+                action ??
+                    SizedBox(
+                      width: 30,
+                    ),
               ],
             ),
+            SizedBox(
+              height: extra != null ? 10 : 20,
+            ),
+            extra ?? SizedBox()
           ],
         ),
       ),

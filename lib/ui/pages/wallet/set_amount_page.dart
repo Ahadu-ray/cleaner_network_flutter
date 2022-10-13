@@ -1,5 +1,6 @@
 import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
+import 'package:cleaner_network_flutter/ui/components/appbar_actions.dart';
 import 'package:cleaner_network_flutter/ui/components/appbar_chips.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_appbar.dart';
 import 'package:cleaner_network_flutter/ui/components/screen_with_appbar.dart';
@@ -32,7 +33,7 @@ class _SetAmountPageState extends State<SetAmountPage> {
         child: ScreenWithAppBar(
             appBar: CustomAppBar(
               title: "Wallet",
-              onRightIcon: () {},
+              action: AppbarActions(),
               extra: AppBarChips(
                 tabs: tabs,
                 onChange: [

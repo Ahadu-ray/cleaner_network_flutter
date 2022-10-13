@@ -17,6 +17,8 @@ class CustomField extends StatelessWidget {
       this.isVisible = true,
       this.enabled = true,
       this.leftWidget,
+      this.rightIconColor = AppTheme.grey1,
+      this.maxLines,
       this.isRectangular = false})
       : super(key: key);
   final TextEditingController? controller;
@@ -31,6 +33,8 @@ class CustomField extends StatelessWidget {
   final bool isVisible;
   final bool enabled;
   final bool isRectangular;
+  final Color rightIconColor;
+  final int? maxLines;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -62,6 +66,7 @@ class CustomField extends StatelessWidget {
                 child: TextFormField(
                   keyboardType: textInputType,
                   obscureText: !isVisible,
+                  maxLines: !isVisible ? 1 : maxLines,
                   enabled: enabled,
                   decoration: InputDecoration(
                     contentPadding:
@@ -74,10 +79,7 @@ class CustomField extends StatelessWidget {
               ),
               rightIcon != null
                   ? IconButton(
-                      icon: Icon(
-                        rightIcon,
-                        color: AppTheme.grey1,
-                      ),
+                      icon: Icon(rightIcon, color: rightIconColor),
                       onPressed: onRightIconTap,
                     )
                   : SizedBox(),

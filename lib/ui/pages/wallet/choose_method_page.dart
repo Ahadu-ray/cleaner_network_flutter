@@ -1,5 +1,6 @@
 import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
+import 'package:cleaner_network_flutter/ui/components/appbar_actions.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_appbar.dart';
 import 'package:cleaner_network_flutter/ui/components/dialogs/payment_option_confirm_dialog.dart';
 import 'package:cleaner_network_flutter/ui/components/dialogs/payment_summary_dialog.dart';
@@ -26,7 +27,7 @@ class _ChooseMethodPageState extends State<ChooseMethodPage> {
       body: ScreenWithAppBar(
           appBar: CustomAppBar(
             title: "Add Money In Wallet",
-            onRightIcon: () {},
+            action: AppbarActions(),
           ),
           withSpace: 138,
           child: Column(

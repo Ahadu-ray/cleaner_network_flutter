@@ -87,7 +87,8 @@ class JobRequestContainer extends StatelessWidget {
                             }));
                           },
                         ),
-                        if (pStatus == "Pending")
+                        if (type == "Completed" ||
+                            (pStatus == "COD" && type == "Completed"))
                           CustomButton(
                             title: "Pay \$20",
                             color: AppTheme.mainGreen,
@@ -103,15 +104,14 @@ class JobRequestContainer extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    if (pStatus == "COD" && type != "Completed")
+                    if (pStatus == "COD" && (type == "Appointed"))
                       Align(
                         alignment: Alignment.center,
                         child: CustomButton(
                           title: "View Cleaner Location",
                           color: AppTheme.mainGreen,
                           onPressed: () {
-                            Get.toNamed(Routes.locationPage,
-                                arguments: ["Job Completed"]);
+                            Get.toNamed(Routes.cleanerLiveLocation);
                           },
                           width: MediaQuery.of(context).size.width * 0.58,
                           isGradient: false,
