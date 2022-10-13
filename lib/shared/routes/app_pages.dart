@@ -1,4 +1,5 @@
 import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
+import 'package:cleaner_network_flutter/ui/bindings/cleaner_bindings.dart';
 import 'package:cleaner_network_flutter/ui/pages/auth/cleaner_auth/login_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/auth/customer_auth/login_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/auth/cleaner_auth/signup_page.dart';
@@ -78,7 +79,10 @@ abstract class AppPages {
     ),
 
     //cleaner
-    GetPage(name: Routes.cleanerHomePage, page: () => CleanerHomePage()),
+    GetPage(
+        name: Routes.cleanerHomePage,
+        page: () => CleanerHomePage(),
+        bindings: [CleanerBindings()]),
 
     GetPage(
       name: Routes.cleanerProfilePage,

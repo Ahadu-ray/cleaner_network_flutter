@@ -71,8 +71,11 @@ class OfferContainer extends StatelessWidget {
                     children: [
                       singleRowBuilder(
                           context, "Start time", hourglass, "2/10/2022"),
+                      SizedBox(
+                        width: 19,
+                      ),
                       CustomText("17:30 PM - 18:30 PM",
-                          style: AppTheme.titleStyle2().copyWith(
+                          style: AppTheme.normalStyle2().copyWith(
                             color: AppTheme.mainGreen,
                           )),
                     ],

@@ -17,6 +17,7 @@ class CustomerLoginPage extends StatefulWidget {
 
 class _CustomerLoginPageState extends State<CustomerLoginPage> {
   int selected = 0;
+  bool rememberMe = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,26 +84,32 @@ class _CustomerLoginPageState extends State<CustomerLoginPage> {
                           },
                         ),
                         InkWell(
-                            child: Container(
-                                width: MediaQuery.of(context).size.width * 0.3,
-                                decoration: selected == 1
-                                    ? BoxDecoration(
-                                        color: AppTheme.mainGreen,
-                                        borderRadius: BorderRadius.circular(10),
-                                      )
-                                    : null,
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 15, horizontal: 10),
-                                child: CustomText(
-                                  "Customer",
-                                  textAlign: TextAlign.center,
-                                  style: AppTheme.butTextC().copyWith(
-                                      color:
-                                          selected != 1 ? AppTheme.black : null,
-                                      fontWeight: selected != 1
-                                          ? FontWeight.normal
-                                          : FontWeight.w600),
-                                ))),
+                          child: Container(
+                              width: MediaQuery.of(context).size.width * 0.3,
+                              decoration: selected == 1
+                                  ? BoxDecoration(
+                                      gradient: AppTheme.buttonGrad(),
+                                      borderRadius: BorderRadius.circular(10),
+                                    )
+                                  : null,
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 15, horizontal: 10),
+                              child: CustomText(
+                                "Customer",
+                                textAlign: TextAlign.center,
+                                style: AppTheme.butTextC().copyWith(
+                                    color:
+                                        selected != 1 ? AppTheme.black : null,
+                                    fontWeight: selected != 1
+                                        ? FontWeight.normal
+                                        : FontWeight.w600),
+                              )),
+                          onTap: () {
+                            setState(() {
+                              selected = 1;
+                            });
+                          },
+                        ),
                       ]),
                 ),
                 SizedBox(
@@ -132,7 +139,17 @@ class _CustomerLoginPageState extends State<CustomerLoginPage> {
                         children: [
                           Row(
                             children: [
-                              Checkbox(value: false, onChanged: (val) {}),
+                              Checkbox(
+                                value: rememberMe,
+                                onChanged: (val) {
+                                  setState(() {
+                                    if (val != null) {
+                                      rememberMe = val;
+                                    }
+                                  });
+                                },
+                                activeColor: AppTheme.mainGreen,
+                              ),
                               CustomText("Remember Me",
                                   style: AppTheme.hintStyle().copyWith(
                                     color: AppTheme.greyL,

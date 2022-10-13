@@ -4,22 +4,20 @@ import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
-class AppBarChips extends StatefulWidget {
-  AppBarChips({Key? key, required this.tabs, required this.onChange})
-      : assert(tabs.length == 2),
+class AppBarChips extends StatelessWidget {
+  AppBarChips({
+    Key? key,
+    required this.tabs,
+    required this.onChange,
+    this.selected = 0,
+  })  : assert(tabs.length == 2),
         super(key: key);
   List<String> tabs;
   List<Function()?> onChange;
+  int selected;
 
   @override
-  State<AppBarChips> createState() => _AppBarChipsState();
-}
-
-class _AppBarChipsState extends State<AppBarChips> {
-  int selected = 0;
-
-  @override
-  Widget build(BuildContext context) {
+  build(BuildContext context) {
     return Container(
       height: 70,
       padding: EdgeInsets.symmetric(horizontal: 10),
@@ -40,7 +38,7 @@ class _AppBarChipsState extends State<AppBarChips> {
                 : null,
             padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
             child: CustomText(
-              widget.tabs[0],
+              tabs[0],
               textAlign: TextAlign.center,
               style: AppTheme.butText().copyWith(
                   color: selected != 0 ? AppTheme.black : null,
@@ -49,10 +47,7 @@ class _AppBarChipsState extends State<AppBarChips> {
             ),
           ),
           onTap: () {
-            setState(() {
-              selected = 0;
-            });
-            widget.onChange.isNotEmpty ? widget.onChange[0]!() : null;
+            onChange.isNotEmpty ? onChange[0]!() : null;
           },
         ),
         InkWell(
@@ -66,7 +61,7 @@ class _AppBarChipsState extends State<AppBarChips> {
                   : null,
               padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
               child: CustomText(
-                widget.tabs[1],
+                tabs[1],
                 textAlign: TextAlign.center,
                 style: AppTheme.butText().copyWith(
                     color: selected != 1 ? AppTheme.black : null,
@@ -75,10 +70,7 @@ class _AppBarChipsState extends State<AppBarChips> {
               ),
             ),
             onTap: () {
-              setState(() {
-                selected = 1;
-              });
-              widget.onChange.isNotEmpty ? widget.onChange[1]!() : null;
+              onChange.isNotEmpty ? onChange[1]!() : null;
             }),
       ]),
     );

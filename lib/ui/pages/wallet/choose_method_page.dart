@@ -86,7 +86,10 @@ class _ChooseMethodPageState extends State<ChooseMethodPage> {
                                 ),
                               ],
                             ),
-                            Image.asset(stripe)
+                            Image.asset(
+                              stripe,
+                              width: 41,
+                            )
                           ],
                         )),
                     SizedBox(
@@ -115,7 +118,10 @@ class _ChooseMethodPageState extends State<ChooseMethodPage> {
                                 ),
                               ],
                             ),
-                            Image.asset(cash)
+                            Image.asset(
+                              cash,
+                              width: 41,
+                            )
                           ],
                         )),
                     SizedBox(

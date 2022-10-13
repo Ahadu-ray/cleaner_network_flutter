@@ -9,9 +9,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 
-class CleanerLoginPage extends StatelessWidget {
+class CleanerLoginPage extends StatefulWidget {
   const CleanerLoginPage({Key? key}) : super(key: key);
 
+  @override
+  State<CleanerLoginPage> createState() => _CleanerLoginPageState();
+}
+
+class _CleanerLoginPageState extends State<CleanerLoginPage> {
+  bool rememberMe = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +77,17 @@ class CleanerLoginPage extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                Checkbox(value: false, onChanged: (val) {}),
+                                Checkbox(
+                                  value: rememberMe,
+                                  onChanged: (val) {
+                                    setState(() {
+                                      if (val != null) {
+                                        rememberMe = val;
+                                      }
+                                    });
+                                  },
+                                  activeColor: AppTheme.mainGreen,
+                                ),
                                 CustomText("Remember Me",
                                     style: AppTheme.hintStyle().copyWith(
                                       color: AppTheme.greyL,
