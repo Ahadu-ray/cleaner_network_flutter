@@ -22,6 +22,8 @@ class _JobClaimScreenState extends State<JobClaimScreen> {
 
   String selectedTab = "Job Requests";
   int selected = 0;
+  PageController pageController = PageController();
+
   @override
   Widget build(BuildContext context) {
     return ScreenWithAppBar(
@@ -35,16 +37,10 @@ class _JobClaimScreenState extends State<JobClaimScreen> {
           selected: selected,
           onChange: [
             () {
-              setState(() {
-                selectedTab = tabs[0];
-                selected = 0;
-              });
+              _changePage(0);
             },
             () {
-              setState(() {
-                selectedTab = tabs[1];
-                selected = 1;
-              });
+              _changePage(1);
             }
           ],
         ),
@@ -54,10 +50,10 @@ class _JobClaimScreenState extends State<JobClaimScreen> {
           OnlineSwitch(),
           Expanded(
             child: PageView(
+              controller: pageController,
               scrollDirection: Axis.horizontal,
               onPageChanged: (i) {
                 setState(() {
-                  selectedTab = tabs[i];
                   selected = i;
                 });
               },
@@ -97,6 +93,15 @@ class _JobClaimScreenState extends State<JobClaimScreen> {
           )
         ],
       ),
+    );
+  }
+
+  void _changePage(int index) {
+    setState(() {
+      selected = index;
+    });
+    pageController.jumpToPage(
+      index,
     );
   }
 }

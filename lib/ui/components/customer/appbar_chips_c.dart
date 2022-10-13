@@ -4,19 +4,14 @@ import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
-class SelectableCChips extends StatefulWidget {
-  SelectableCChips({Key? key, required this.tabs, required this.onChange})
+class SelectableCChips extends StatelessWidget {
+  SelectableCChips(
+      {Key? key, required this.tabs, required this.onChange, this.selected = 0})
       : assert(tabs.length == 2 || tabs.length == 3),
         super(key: key);
   List<String> tabs;
   List<Function()?> onChange;
-
-  @override
-  State<SelectableCChips> createState() => _SelectableCChipsState();
-}
-
-class _SelectableCChipsState extends State<SelectableCChips> {
-  int selected = 0;
+  int selected;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +35,7 @@ class _SelectableCChipsState extends State<SelectableCChips> {
                 : null,
             padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
             child: CustomText(
-              widget.tabs[0],
+              tabs[0],
               textAlign: TextAlign.center,
               style: AppTheme.butTextC().copyWith(
                   color: selected != 0 ? AppTheme.black : null,
@@ -50,10 +45,7 @@ class _SelectableCChipsState extends State<SelectableCChips> {
             ),
           ),
           onTap: () {
-            setState(() {
-              selected = 0;
-            });
-            widget.onChange.isNotEmpty ? widget.onChange[0]!() : null;
+            onChange.isNotEmpty ? onChange[0]!() : null;
           },
         ),
         InkWell(
@@ -67,7 +59,7 @@ class _SelectableCChipsState extends State<SelectableCChips> {
                   : null,
               padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
               child: CustomText(
-                widget.tabs[1],
+                tabs[1],
                 textAlign: TextAlign.center,
                 style: AppTheme.butTextC().copyWith(
                     color: selected != 1 ? AppTheme.black : null,
@@ -76,10 +68,7 @@ class _SelectableCChipsState extends State<SelectableCChips> {
               ),
             ),
             onTap: () {
-              setState(() {
-                selected = 1;
-              });
-              widget.onChange.isNotEmpty ? widget.onChange[1]!() : null;
+              onChange.isNotEmpty ? onChange[1]!() : null;
             }),
         InkWell(
             child: Container(
@@ -92,7 +81,7 @@ class _SelectableCChipsState extends State<SelectableCChips> {
                   : null,
               padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
               child: CustomText(
-                widget.tabs[2],
+                tabs[2],
                 textAlign: TextAlign.center,
                 style: AppTheme.butTextC().copyWith(
                     color: selected != 2 ? AppTheme.black : null,
@@ -101,10 +90,7 @@ class _SelectableCChipsState extends State<SelectableCChips> {
               ),
             ),
             onTap: () {
-              setState(() {
-                selected = 2;
-              });
-              widget.onChange.isNotEmpty ? widget.onChange[2]!() : null;
+              onChange.isNotEmpty ? onChange[2]!() : null;
             }),
       ]),
     );

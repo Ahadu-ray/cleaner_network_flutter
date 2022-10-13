@@ -22,6 +22,9 @@ class _CleanerScheduleScreenState extends State<CleanerScheduleScreen> {
   List<String> tabs = ["Schedule", "Completed"];
 
   String selectedTab = "Schedule";
+  int selected = 0;
+
+  PageController pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,16 +35,13 @@ class _CleanerScheduleScreenState extends State<CleanerScheduleScreen> {
         hasBack: false,
         extra: AppBarChips(
           tabs: tabs,
+          selected: selected,
           onChange: [
             () {
-              setState(() {
-                selectedTab = tabs[0];
-              });
+              _changePage(0);
             },
             () {
-              setState(() {
-                selectedTab = tabs[1];
-              });
+              _changePage(1);
             }
           ],
         ),
@@ -49,21 +49,62 @@ class _CleanerScheduleScreenState extends State<CleanerScheduleScreen> {
       child: Column(
         children: [
           OnlineSwitch(),
-          SelectableDates(onSelect: () {}),
           Expanded(
-            child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return OfferContainer(
-                  status:
-                      selectedTab == tabs[0] ? "Job Accepted" : "Job Completed",
-                );
+            child: PageView(
+              scrollDirection: Axis.horizontal,
+              controller: pageController,
+              onPageChanged: (v) {
+                setState(() {
+                  selected = v;
+                });
               },
-              itemCount: 3,
+              children: [
+                Column(
+                  children: [
+                    SelectableDates(onSelect: () {}),
+                    Expanded(
+                      child: ListView.builder(
+                        physics: BouncingScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return OfferContainer(
+                            status: "Job Accepted",
+                          );
+                        },
+                        itemCount: 3,
+                      ),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    SelectableDates(onSelect: () {}),
+                    Expanded(
+                      child: ListView.builder(
+                        physics: BouncingScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return OfferContainer(
+                            status: "Job Completed",
+                          );
+                        },
+                        itemCount: 3,
+                      ),
+                    )
+                  ],
+                )
+              ],
             ),
           )
         ],
       ),
+    );
+  }
+
+  void _changePage(int index) {
+    setState(() {
+      selected = index;
+    });
+    pageController.jumpToPage(
+      index,
     );
   }
 }

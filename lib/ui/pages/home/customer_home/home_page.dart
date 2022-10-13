@@ -34,15 +34,15 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
           action: AppbarActions(
             type: "Customer",
           ),
-          extra: SelectableCChips(onChange: [
+          extra: SelectableCChips(selected: _currentIndex, onChange: [
             () {
-              _controller.jumpToPage(0);
+              _changePage(0);
             },
             () {
-              _controller.jumpToPage(1);
+              _changePage(1);
             },
             () {
-              _controller.jumpToPage(2);
+              _changePage(2);
             },
           ], tabs: [
             "Job Requests",
@@ -55,7 +55,11 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
           children: [
             PageView(
               controller: _controller,
-              physics: NeverScrollableScrollPhysics(),
+              onPageChanged: (v) {
+                setState(() {
+                  _currentIndex = v;
+                });
+              },
               children: [
                 JobRequestsScreen(),
                 CustomerScheduleScreen(),
@@ -84,10 +88,8 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
     setState(() {
       _currentIndex = index;
     });
-    _controller.animateToPage(
+    _controller.jumpToPage(
       index,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeOutCubic,
     );
   }
 }
