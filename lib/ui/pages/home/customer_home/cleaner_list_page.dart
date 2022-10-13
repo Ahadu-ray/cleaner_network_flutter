@@ -18,29 +18,32 @@ class CleanersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ScreenWithAppBar(
-          appBar: CustomAppBar(
-            title: "Cleaner List",
-            extra: SearchField(
-              onFilter: () {
-                Get.bottomSheet(CleanerListFilter());
-              },
-            ),
-          ),
-          child: Column(
-            children: [
-              Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: 2,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return CleanerListItem();
-                  },
-                ),
+      body: GestureDetector(
+        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+        child: ScreenWithAppBar(
+            appBar: CustomAppBar(
+              title: "Cleaner List",
+              extra: SearchField(
+                onFilter: () {
+                  Get.bottomSheet(CleanerListFilter());
+                },
               ),
-            ],
-          )),
+            ),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: 2,
+                    physics: BouncingScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return CleanerListItem();
+                    },
+                  ),
+                ),
+              ],
+            )),
+      ),
     );
   }
 }

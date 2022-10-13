@@ -61,8 +61,8 @@ Widget singleRowBuilder(
 }
 
 Widget jobRequestRowBuilder(
-    BuildContext context, IconData iconData, String title, String sub,
-    {Color color = Colors.black}) {
+    BuildContext context, IconData? iconData, String title, String sub,
+    {Color color = Colors.black, Function()? onRight}) {
   return Container(
     margin: EdgeInsets.only(bottom: 19),
     child: Row(
@@ -74,13 +74,15 @@ Widget jobRequestRowBuilder(
               width: MediaQuery.of(context).size.width * 0.33,
               child: Row(
                 children: [
-                  Icon(
-                    iconData,
-                    color: AppTheme.mainGreen,
-                  ),
-                  SizedBox(
-                    width: 6,
-                  ),
+                  if (iconData != null)
+                    Icon(
+                      iconData,
+                      color: AppTheme.mainGreen,
+                    ),
+                  if (iconData != null)
+                    SizedBox(
+                      width: 6,
+                    ),
                   Expanded(
                     child: CustomText(title,
                         style: AppTheme.normalStyle3().copyWith(
@@ -93,7 +95,14 @@ Widget jobRequestRowBuilder(
             Text(":", style: AppTheme.normalStyle3()),
           ],
         ),
-        Text(sub, style: AppTheme.normalStyle3().copyWith(color: color))
+        Flexible(
+          fit: FlexFit.loose,
+          child: InkWell(
+              onTap: onRight,
+              child: Text(sub,
+                  textAlign: TextAlign.end,
+                  style: AppTheme.normalStyle3().copyWith(color: color))),
+        )
       ],
     ),
   );

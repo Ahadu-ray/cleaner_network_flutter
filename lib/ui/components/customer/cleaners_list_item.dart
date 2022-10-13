@@ -1,9 +1,11 @@
+import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:cleaner_network_flutter/utils/constants/asset_constants.dart';
 import 'package:cleaner_network_flutter/utils/functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 
 class CleanerListItem extends StatelessWidget {
@@ -45,6 +47,9 @@ class CleanerListItem extends StatelessWidget {
                 hPadding: 8,
                 isGradient: false,
                 style: AppTheme.butText().copyWith(fontSize: 8.6),
+                onPressed: () {
+                  Get.toNamed(Routes.viewCleanerProfile);
+                },
               ),
             ],
           ),
@@ -53,15 +58,17 @@ class CleanerListItem extends StatelessWidget {
           ),
           jobRequestRowBuilder(context, IconlyLight.send, "Distance", "12km"),
           jobRequestRowBuilder(
-              context, IconlyLight.send, "Price/Hour", "\$ 20"),
+              context, IconlyLight.time_circle, "Price/Hour", "\$ 20"),
           jobRequestRowBuilder(
-              context, IconlyLight.send, "Last Active", "2022/10/01"),
-          jobRequestRowBuilder(context, IconlyLight.send, "About Me",
+              context, IconlyLight.chart, "Last Active", "2022/10/01"),
+          jobRequestRowBuilder(context, IconlyLight.paper, "About Me",
               "Childcare Qualifications"),
           InkWell(
               child: jobRequestRowBuilder(
                   context, IconlyLight.send, "Review", "Read Reviews",
-                  color: AppTheme.mainGreen)),
+                  color: AppTheme.mainGreen, onRight: () {
+            Get.toNamed(Routes.reviewCleanerPage);
+          })),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -135,7 +142,7 @@ class CleanerListItem extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "12",
+                        "06",
                         style: AppTheme.normalStyle().copyWith(
                           color: AppTheme.red,
                         ),

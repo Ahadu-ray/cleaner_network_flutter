@@ -26,6 +26,7 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: ScreenWithAppBar(
         appBar: CustomAppBar(
           title: "Appointments",

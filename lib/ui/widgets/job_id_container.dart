@@ -15,9 +15,8 @@ class JobIdContainer extends StatelessWidget {
       padding: EdgeInsets.all(10),
       child: CustomText(
         "$name : $id",
-        style: AppTheme.titleStyle2().copyWith(
-          color: AppTheme.mainGreen,
-        ),
+        style: AppTheme.titleStyle2()
+            .copyWith(color: AppTheme.mainGreen, fontSize: 14),
       ),
     );
   }

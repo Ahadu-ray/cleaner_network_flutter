@@ -1,5 +1,8 @@
 import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
+import 'package:cleaner_network_flutter/ui/components/dialogs/cancel_appointment_confirm_dialog.dart';
+import 'package:cleaner_network_flutter/ui/components/dialogs/feedback_dialog.dart';
+import 'package:cleaner_network_flutter/ui/components/dialogs/rate_cleaner_dialog.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/job_id_container.dart';
 import 'package:cleaner_network_flutter/utils/functions.dart';
@@ -25,7 +28,7 @@ class JobRequestContainer extends StatelessWidget {
         child: Container(
           decoration: AppTheme.mainCardDecoration2(),
           padding: EdgeInsets.symmetric(horizontal: 18, vertical: 14),
-          margin: EdgeInsets.only(bottom: 23),
+          margin: EdgeInsets.only(bottom: 23, left: 23, right: 23),
           child: Column(
             children: [
               Align(
@@ -77,6 +80,12 @@ class JobRequestContainer extends StatelessWidget {
                           width: MediaQuery.of(context).size.width * 0.28,
                           isGradient: false,
                           vPadding: 14,
+                          onPressed: () {
+                            Get.dialog(
+                                CancelAppointmentConfirmDialog(onDone: () {
+                              Get.back();
+                            }));
+                          },
                         ),
                         if (pStatus == "Pending")
                           CustomButton(
@@ -85,13 +94,16 @@ class JobRequestContainer extends StatelessWidget {
                             width: MediaQuery.of(context).size.width * 0.28,
                             isGradient: false,
                             vPadding: 14,
+                            onPressed: () {
+                              Get.toNamed(Routes.customerPaymentOptionsPage);
+                            },
                           )
                       ],
                     ),
                     SizedBox(
                       height: 20,
                     ),
-                    if (pStatus == "COD")
+                    if (pStatus == "COD" && type != "Completed")
                       Align(
                         alignment: Alignment.center,
                         child: CustomButton(
@@ -111,7 +123,14 @@ class JobRequestContainer extends StatelessWidget {
                         child: CustomButton(
                           title: "Click here to complete rate your service",
                           color: AppTheme.mainGreen,
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.dialog(RateCleanerDialog(onDone: (() {
+                              Get.back();
+                              Get.dialog(FeedbackDialog(onDone: (() {
+                                Get.back();
+                              })));
+                            })));
+                          },
                           isGradient: false,
                         ),
                       ),

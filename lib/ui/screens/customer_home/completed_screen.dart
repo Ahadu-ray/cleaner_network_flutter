@@ -6,21 +6,18 @@ class CompletedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 23),
-      child: Column(
-        children: [
-          Expanded(
-              child: ListView.builder(
-                  itemCount: 2,
-                  itemBuilder: (context, index) {
-                    return JobRequestContainer(
-                      pStatus: "COD",
-                      type: "Completed",
-                    );
-                  }))
-        ],
-      ),
+    return Column(
+      children: [
+        Expanded(
+            child: ListView.builder(
+                itemCount: 2,
+                itemBuilder: (context, index) {
+                  return JobRequestContainer(
+                    pStatus: "COD",
+                    type: "Completed",
+                  );
+                }))
+      ],
     );
   }
 }

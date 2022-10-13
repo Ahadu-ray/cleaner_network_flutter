@@ -1,13 +1,18 @@
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
-import 'package:cleaner_network_flutter/utils/constants/asset_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AcceptJobDialog extends StatelessWidget {
-  AcceptJobDialog({Key? key, required this.onDone}) : super(key: key);
+class PaymentOptionConfirm extends StatelessWidget {
+  PaymentOptionConfirm({
+    Key? key,
+    required this.onDone,
+    required this.name,
+    required this.path,
+  }) : super(key: key);
   Function() onDone;
+  String name, path;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -32,11 +37,18 @@ class AcceptJobDialog extends StatelessWidget {
               ),
             ],
           ),
-          Image.asset(
-            cleaner,
-            width: 114,
+          SizedBox(
+            height: 16,
           ),
-          CustomText("Accept This Job Now", style: AppTheme.normalStyle()),
+          Image.asset(
+            path,
+            width: 175,
+          ),
+          SizedBox(
+            height: 31,
+          ),
+          CustomText("Are you sure you want to pay via $name?",
+              style: AppTheme.normalStyle()),
           SizedBox(
             height: 30,
           ),
@@ -48,11 +60,15 @@ class AcceptJobDialog extends StatelessWidget {
                 inverted: true,
                 width: MediaQuery.of(context).size.width * 0.3,
                 vPadding: 16,
+                onPressed: () {
+                  Get.back();
+                },
               ),
               CustomButton(
                 title: "Yes",
                 width: MediaQuery.of(context).size.width * 0.3,
                 vPadding: 16,
+                onPressed: onDone,
               )
             ],
           ),

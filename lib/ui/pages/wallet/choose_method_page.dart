@@ -1,6 +1,7 @@
 import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_appbar.dart';
+import 'package:cleaner_network_flutter/ui/components/dialogs/payment_option_confirm_dialog.dart';
 import 'package:cleaner_network_flutter/ui/components/dialogs/payment_summary_dialog.dart';
 import 'package:cleaner_network_flutter/ui/components/screen_with_appbar.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_field.dart';
@@ -123,7 +124,7 @@ class _ChooseMethodPageState extends State<ChooseMethodPage> {
                       title: "Proceed",
                       vPadding: 20,
                       onPressed: () {
-                        Get.dialog(ProceedPaymentDialog(onDone: () {
+                        Get.dialog(PaymentSummaryDialog(onDone: () {
                           Get.toNamed(Routes.cardDetailPage);
                         }));
                       },

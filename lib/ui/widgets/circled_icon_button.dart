@@ -8,16 +8,19 @@ class CircledIconButton extends StatelessWidget {
   final IconData iconData;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 25,
-      height: 25,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: AppTheme.mainGreen,
-        borderRadius: BorderRadius.circular(16),
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        width: 25,
+        height: 25,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: AppTheme.mainGreen,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        clipBehavior: Clip.hardEdge,
+        child: Icon(iconData, color: Colors.white),
       ),
-      clipBehavior: Clip.hardEdge,
-      child: Icon(iconData, color: Colors.white),
     );
   }
 }

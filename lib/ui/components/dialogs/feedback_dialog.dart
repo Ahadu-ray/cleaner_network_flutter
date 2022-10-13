@@ -1,13 +1,21 @@
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
+import 'package:cleaner_network_flutter/ui/widgets/custom_field.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:cleaner_network_flutter/utils/constants/asset_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AcceptJobDialog extends StatelessWidget {
-  AcceptJobDialog({Key? key, required this.onDone}) : super(key: key);
+class FeedbackDialog extends StatefulWidget {
+  FeedbackDialog({Key? key, required this.onDone}) : super(key: key);
   Function() onDone;
+
+  @override
+  State<FeedbackDialog> createState() => _FeedbackDialogState();
+}
+
+class _FeedbackDialogState extends State<FeedbackDialog> {
+  String choosen = "";
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -21,6 +29,10 @@ class AcceptJobDialog extends StatelessWidget {
               SizedBox(
                 width: 10,
               ),
+              CustomText(
+                "Provide Feedback",
+                style: AppTheme.normalStyle4(),
+              ),
               Align(
                 alignment: Alignment.topRight,
                 child: IconButton(
@@ -32,11 +44,16 @@ class AcceptJobDialog extends StatelessWidget {
               ),
             ],
           ),
-          Image.asset(
-            cleaner,
-            width: 114,
+          SizedBox(
+            height: 42,
           ),
-          CustomText("Accept This Job Now", style: AppTheme.normalStyle()),
+          Container(
+            decoration: AppTheme.fieldDecoration2(),
+            child: TextField(
+              maxLines: 5,
+              decoration: InputDecoration(border: InputBorder.none),
+            ),
+          ),
           SizedBox(
             height: 30,
           ),
@@ -44,15 +61,16 @@ class AcceptJobDialog extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomButton(
-                title: "No",
+                title: "Cancel",
                 inverted: true,
-                width: MediaQuery.of(context).size.width * 0.3,
+                width: MediaQuery.of(context).size.width * 0.28,
                 vPadding: 16,
               ),
               CustomButton(
-                title: "Yes",
-                width: MediaQuery.of(context).size.width * 0.3,
+                title: "Done",
+                width: MediaQuery.of(context).size.width * 0.28,
                 vPadding: 16,
+                onPressed: widget.onDone,
               )
             ],
           ),

@@ -26,6 +26,8 @@ const profile = "$_assetsPath/profile.png";
 const happyFace = "$_assetsPath/happy.png";
 const normalFace = "$_assetsPath/normal.png";
 const sadFace = "$_assetsPath/sad.png";
+const empty = "$_assetsPath/Empty Screen.png";
+const cancelAppointment = "$_assetsPath/Cancel Appointment.png";
 
 //fonts
 const montserrat = "Montserrat";

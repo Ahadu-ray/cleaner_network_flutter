@@ -74,7 +74,7 @@ class CustomAppBar extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: 20,
+                  height: extra != null ? 10 : 20,
                 ),
                 extra ?? SizedBox()
               ],

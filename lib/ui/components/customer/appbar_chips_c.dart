@@ -92,7 +92,7 @@ class _SelectableCChipsState extends State<SelectableCChips> {
                   : null,
               padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
               child: CustomText(
-                widget.tabs[1],
+                widget.tabs[2],
                 textAlign: TextAlign.center,
                 style: AppTheme.butTextC().copyWith(
                     color: selected != 2 ? AppTheme.black : null,

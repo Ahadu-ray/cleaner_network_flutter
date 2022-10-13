@@ -1,12 +1,13 @@
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
+import 'package:cleaner_network_flutter/ui/widgets/job_id_container.dart';
 import 'package:cleaner_network_flutter/utils/constants/asset_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AcceptJobDialog extends StatelessWidget {
-  AcceptJobDialog({Key? key, required this.onDone}) : super(key: key);
+class RequestSent extends StatelessWidget {
+  RequestSent({Key? key, required this.onDone}) : super(key: key);
   Function() onDone;
   @override
   Widget build(BuildContext context) {
@@ -18,9 +19,7 @@ class AcceptJobDialog extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
-                width: 10,
-              ),
+              JobIdContainer(id: 1864),
               Align(
                 alignment: Alignment.topRight,
                 child: IconButton(
@@ -32,28 +31,28 @@ class AcceptJobDialog extends StatelessWidget {
               ),
             ],
           ),
-          Image.asset(
-            cleaner,
-            width: 114,
+          SizedBox(
+            height: 19,
           ),
-          CustomText("Accept This Job Now", style: AppTheme.normalStyle()),
+          CustomText(
+            "We have sent your request to all our available cleaners in your area.\n\nWhen cleaners confirm they are available they will appear above.\n\nYou can then choose amongst the available cleaners which one you prefer based on price, distance or reviews.\n\nCleaner response times may vary as they may currently be at a job and will not be able to respond until that job is complete.",
+            style: AppTheme.normalStyle(),
+          ),
           SizedBox(
             height: 30,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              CustomButton(
-                title: "No",
-                inverted: true,
-                width: MediaQuery.of(context).size.width * 0.3,
-                vPadding: 16,
-              ),
-              CustomButton(
-                title: "Yes",
-                width: MediaQuery.of(context).size.width * 0.3,
-                vPadding: 16,
-              )
+              TextButton(
+                  onPressed: () {
+                    onDone();
+                  },
+                  child: Text(
+                    "OK",
+                    style: AppTheme.normalStyle4()
+                        .copyWith(color: AppTheme.mainGreen, fontSize: 16),
+                  ))
             ],
           ),
           SizedBox(
