@@ -19,6 +19,8 @@ abstract class Routes {
   //cleaner
   static const cleanerHomePage = "/home_cleaner";
   static const cleanerProfilePage = "/cleaner_profile";
+  static const schedulePage = "/schedule_page";
+
   //common
   static const setAmountPage = "/set_amount";
   static const chooseMethodPage = "/choose_method";

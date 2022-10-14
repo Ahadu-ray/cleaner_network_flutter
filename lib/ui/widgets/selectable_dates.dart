@@ -1,5 +1,6 @@
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class SelectableDates extends StatefulWidget {
   SelectableDates({Key? key, required this.onSelect}) : super(key: key);
@@ -11,6 +12,7 @@ class SelectableDates extends StatefulWidget {
 
 class _SelectableDatesState extends State<SelectableDates> {
   int selected = 0;
+  DateTime init = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,6 +23,7 @@ class _SelectableDatesState extends State<SelectableDates> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: ((context, index) {
+          DateTime temp = init.add(Duration(days: index));
           return Column(
             children: [
               InkWell(
@@ -43,8 +46,8 @@ class _SelectableDatesState extends State<SelectableDates> {
                       padding: EdgeInsets.symmetric(vertical: 4),
                       height: index == selected ? 35 : 30,
                       width: index == selected ? 78 : 70,
-                      color: AppTheme.mainGreen,
-                      child: Text("Jul",
+                      color: index == 2 ? Colors.redAccent : AppTheme.mainGreen,
+                      child: Text(DateFormat.MMM().format(temp),
                           textAlign: TextAlign.center,
                           style: AppTheme.calendarCardTitle()),
                     ),
@@ -54,7 +57,7 @@ class _SelectableDatesState extends State<SelectableDates> {
                           height: 5,
                         ),
                         Text(
-                          (21 + index).toString(),
+                          temp.day.toString(),
                           style: AppTheme.calendarCardSelectedTitle().copyWith(
                             color: index == selected ? null : AppTheme.black,
                             fontSize: index == selected ? null : 20,
@@ -63,7 +66,7 @@ class _SelectableDatesState extends State<SelectableDates> {
                         SizedBox(
                           height: 5,
                         ),
-                        Text("Tue",
+                        Text(DateFormat.E().format(temp),
                             style: AppTheme.calendarCardTitle().copyWith(
                               color: index == selected
                                   ? AppTheme.mainGreen

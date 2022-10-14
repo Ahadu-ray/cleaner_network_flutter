@@ -4,6 +4,7 @@ import 'package:cleaner_network_flutter/ui/components/appbar_chips.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_appbar.dart';
 import 'package:cleaner_network_flutter/ui/components/offer_container.dart';
 import 'package:cleaner_network_flutter/ui/components/online_switch.dart';
+import 'package:cleaner_network_flutter/ui/components/schedule_calendar.dart';
 import 'package:cleaner_network_flutter/ui/components/screen_with_appbar.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:cleaner_network_flutter/ui/widgets/selectable_dates.dart';
@@ -72,22 +73,7 @@ class _JobClaimScreenState extends State<JobClaimScreen> {
                     ),
                   ],
                 ),
-                Column(
-                  children: [
-                    SelectableDates(onSelect: () {}),
-                    Expanded(
-                      child: ListView.builder(
-                        physics: BouncingScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          return OfferContainer(
-                            status: "Job Accepted",
-                          );
-                        },
-                        itemCount: 3,
-                      ),
-                    )
-                  ],
-                )
+                ScheduleCalendar()
               ],
             ),
           )
