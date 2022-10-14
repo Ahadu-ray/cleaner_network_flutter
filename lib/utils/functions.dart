@@ -107,3 +107,65 @@ Widget jobRequestRowBuilder(
     ),
   );
 }
+
+selectDate({
+  required BuildContext context,
+  required DateTime firstDate,
+  required DateTime lastDate,
+  required DateTime initialDate,
+}) async {
+  final DateTime? selected = await showDatePicker(
+    context: context,
+    initialDate: initialDate,
+    firstDate: firstDate,
+    lastDate: lastDate,
+    builder: (context, child) {
+      return Theme(
+        data: Theme.of(context).copyWith(
+          colorScheme: ColorScheme.light(
+            primary: AppTheme.mainGreen, // <-- SEE HERE
+            onPrimary: Colors.white,
+            onSurface: AppTheme.mainGreen, // <-- SEE HERE
+          ),
+          textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(
+              primary: AppTheme.mainGreen,
+            ),
+          ),
+        ),
+        child: child!,
+      );
+    },
+  );
+
+  return selected;
+}
+
+selectTime({
+  required BuildContext context,
+  required TimeOfDay initialTime,
+}) async {
+  final TimeOfDay? selected = await showTimePicker(
+    context: context,
+    initialTime: initialTime,
+    builder: (context, child) {
+      return Theme(
+        data: Theme.of(context).copyWith(
+          colorScheme: ColorScheme.light(
+            primary: AppTheme.mainGreen, // <-- SEE HERE
+            onPrimary: Colors.white,
+            onSurface: AppTheme.mainGreen, // <-- SEE HERE
+          ),
+          textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(
+              primary: AppTheme.mainGreen,
+            ),
+          ),
+        ),
+        child: child!,
+      );
+    },
+  );
+
+  return selected;
+}

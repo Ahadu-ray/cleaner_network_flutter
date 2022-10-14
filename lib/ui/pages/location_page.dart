@@ -30,56 +30,56 @@ class LocationPage extends StatelessWidget {
           children: [
             //replace with google map widget
             CustomMap(),
-            BottomDraggable(initialChildSize: 0.4, minChildSize: 0.3, slivers: [
-              SliverToBoxAdapter(
-                  child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 29.0),
-                child: Column(
-                  children: [
-                    status == "Job Completed"
-                        ? Container(
-                            width: 139,
-                            margin: EdgeInsets.only(top: 20),
-                            child: StatusContainer(
-                              status: "Copmleted",
-                              gap: 16.5,
-                            ))
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Image.asset(
-                                priceTag,
-                                width: 15,
-                              ),
-                              CustomText(
-                                "Price: ",
-                                style: AppTheme.titleStyle2(),
-                              ),
-                              Text("60\$",
-                                  style: AppTheme.titleStyle2().copyWith(
-                                    color: AppTheme.mainGreen,
-                                  ))
-                            ],
-                          ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    CleanerDetail(),
-                    if (status == null)
-                      Container(
-                          margin: EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 33),
-                          child: CustomButton(
-                            vPadding: 20,
-                            title: "Accept Job",
-                            onPressed: () {
-                              Get.dialog(AcceptJobDialog(onDone: () {}));
-                            },
-                          ))
-                  ],
-                ),
-              )),
-            ])
+            // BottomDraggable(initialChildSize: 0.4, minChildSize: 0.3, slivers: [
+            //   SliverToBoxAdapter(
+            //       child: Padding(
+            //     padding: const EdgeInsets.symmetric(horizontal: 29.0),
+            //     child: Column(
+            //       children: [
+            //         status == "Job Completed"
+            //             ? Container(
+            //                 width: 139,
+            //                 margin: EdgeInsets.only(top: 20),
+            //                 child: StatusContainer(
+            //                   status: "Copmleted",
+            //                   gap: 16.5,
+            //                 ))
+            //             : Row(
+            //                 mainAxisAlignment: MainAxisAlignment.end,
+            //                 children: [
+            //                   Image.asset(
+            //                     priceTag,
+            //                     width: 15,
+            //                   ),
+            //                   CustomText(
+            //                     "Price: ",
+            //                     style: AppTheme.titleStyle2(),
+            //                   ),
+            //                   Text("60\$",
+            //                       style: AppTheme.titleStyle2().copyWith(
+            //                         color: AppTheme.mainGreen,
+            //                       ))
+            //                 ],
+            //               ),
+            //         SizedBox(
+            //           height: 30,
+            //         ),
+            //         CleanerDetail(),
+            //         if (status == null)
+            //           Container(
+            //               margin: EdgeInsets.symmetric(
+            //                   horizontal: 10, vertical: 33),
+            //               child: CustomButton(
+            //                 vPadding: 20,
+            //                 title: "Accept Job",
+            //                 onPressed: () {
+            //                   Get.dialog(AcceptJobDialog(onDone: () {}));
+            //                 },
+            //               ))
+            //       ],
+            //     ),
+            //   )),
+            // ])
           ],
         ),
       ),

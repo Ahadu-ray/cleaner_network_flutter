@@ -8,11 +8,16 @@ import 'package:iconly/iconly.dart';
 
 class CustomDropdown extends StatefulWidget {
   CustomDropdown(
-      {Key? key, required this.title, required this.choices, this.hint})
+      {Key? key,
+      required this.title,
+      required this.choices,
+      this.hint,
+      this.onSelect})
       : super(key: key);
   String? title;
   String? hint;
-  List<String> choices;
+  List<dynamic> choices;
+  ValueSetter<dynamic>? onSelect;
 
   @override
   State<CustomDropdown> createState() => _CustomDropdownState();
@@ -47,8 +52,11 @@ class _CustomDropdownState extends State<CustomDropdown> {
                   value: selectedValue,
                   onChanged: (value) {
                     setState(() {
-                      selectedValue = value as String;
+                      selectedValue = value.toString();
                     });
+                    if (widget.onSelect != null) {
+                      widget.onSelect!(value);
+                    }
                   },
                   customItemsHeights: _getCustomItemsHeights(),
                   icon: Icon(
@@ -66,17 +74,17 @@ class _CustomDropdownState extends State<CustomDropdown> {
     for (var choice in widget.choices) {
       temp.addAll([
         DropdownMenuItem<String>(
-          value: choice,
+          value: choice.toString(),
           child: Row(
             children: [
               Radio(
                   groupValue: selectedValue,
                   activeColor: AppTheme.mainGreen,
-                  value: choice,
+                  value: choice.toString(),
                   onChanged: (v) {}),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.47,
-                child: Text(choice,
+                child: Text(choice.toString(),
                     overflow: TextOverflow.clip,
                     style: AppTheme.normalStyle()
                         .copyWith(fontWeight: FontWeight.w500)),

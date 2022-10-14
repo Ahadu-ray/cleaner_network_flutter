@@ -8,6 +8,7 @@ import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_dropdown.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_field.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
+import 'package:cleaner_network_flutter/utils/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
@@ -43,16 +44,22 @@ class CleanerProfilePage extends StatelessWidget {
                 hint: "Hassan",
                 label: "First Name",
               ),
+              SizedBox(
+                height: 20,
+              ),
               CustomField(
                 hint: "Ahmed",
                 label: "Last Name",
+              ),
+              SizedBox(
+                height: 20,
               ),
               CustomField(
                 label: "Select Date of Birth",
                 hint: "29/Jan/1998",
                 rightIcon: IconlyLight.calendar,
                 onRightIconTap: () {
-                  showDatePicker(
+                  selectDate(
                       context: context,
                       initialDate: DateTime.now(),
                       firstDate:
@@ -60,9 +67,15 @@ class CleanerProfilePage extends StatelessWidget {
                       lastDate: DateTime.now());
                 },
               ),
+              SizedBox(
+                height: 20,
+              ),
               CustomField(
                 hint: "faizansalman222@gmail.com",
                 label: "Email Address",
+              ),
+              SizedBox(
+                height: 20,
               ),
               CustomField(
                 hint: "+353 456 678",
@@ -117,7 +130,19 @@ class CleanerProfilePage extends StatelessWidget {
                 rightIconColor: Colors.black,
                 rightIcon: IconlyBold.location,
               ),
+              SizedBox(
+                height: 24,
+              ),
               SmallMapView(),
+              SizedBox(
+                height: 24,
+              ),
+              CustomDropdown(
+                  title: "Change Language",
+                  hint: "English",
+                  choices: [
+                    "English",
+                  ]),
               SizedBox(
                 height: 52,
               ),

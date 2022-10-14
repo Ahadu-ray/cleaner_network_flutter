@@ -1,17 +1,23 @@
+import 'dart:developer';
+
+import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_appbar.dart';
 import 'package:cleaner_network_flutter/ui/components/dialogs/request_sent_dialog.dart';
 import 'package:cleaner_network_flutter/ui/components/map/small_map_view.dart';
 import 'package:cleaner_network_flutter/ui/components/screen_with_appbar.dart';
+import 'package:cleaner_network_flutter/ui/controllers/customer_controller.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_dropdown.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_field.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:cleaner_network_flutter/ui/widgets/iteratable_button.dart';
+import 'package:cleaner_network_flutter/utils/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iconly/iconly.dart';
+import 'package:intl/intl.dart';
 
 class BookAppointment extends StatefulWidget {
   const BookAppointment({Key? key}) : super(key: key);
@@ -22,6 +28,18 @@ class BookAppointment extends StatefulWidget {
 
 class _BookAppointmentState extends State<BookAppointment> {
   int bedroom = 1, bathroom = 1;
+
+  DateTime startTime = DateTime.now();
+  DateTime endTime = DateTime.now();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    calculateEndTime();
+  }
+
+  String cleaningDuration = "3";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,51 +99,75 @@ class _BookAppointmentState extends State<BookAppointment> {
                 SizedBox(
                   height: 20,
                 ),
-                CustomField(
-                  hint: "3",
-                  label: "Hours of Cleaning",
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                CustomField(
-                  hint: "3/02/2022",
-                  label: "Start Date",
-                  rightIcon: IconlyLight.calendar,
-                  onRightIconTap: () {
-                    showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime.now(),
-                        lastDate: DateTime.now().add(Duration(days: 365)));
+                CustomDropdown(
+                  choices: ["3:00", "4:00", "5:00"],
+                  hint: "3:00",
+                  title: "Hours of Cleaning",
+                  onSelect: (v) {
+                    setState(() {
+                      cleaningDuration = v;
+                    });
+                    calculateEndTime();
                   },
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 CustomField(
-                  hint: "3/02/2022",
+                  hint: DateFormat.d().format(startTime),
+                  label: "Start Date",
+                  rightIcon: IconlyLight.calendar,
+                  onRightIconTap: () {
+                    selectDate(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime.now(),
+                            lastDate: DateTime.now().add(Duration(days: 365)))
+                        .then((value) => {
+                              if (value != null)
+                                {
+                                  setState(() {
+                                    startTime = value;
+                                  }),
+                                  calculateEndTime()
+                                },
+                            });
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomField(
+                  hint: DateFormat.Hm().format(startTime),
                   label: "Start Time",
-                  rightIcon: IconlyLight.calendar,
+                  rightIcon: IconlyLight.time_circle,
                   onRightIconTap: () {
-                    showTimePicker(
-                        context: context, initialTime: TimeOfDay.now());
+                    selectTime(context: context, initialTime: TimeOfDay.now())
+                        .then((value) => {
+                              if (value != null)
+                                {
+                                  setState(() {
+                                    startTime = DateTime(
+                                      startTime.year,
+                                      startTime.month,
+                                      startTime.day,
+                                      value.hour,
+                                      value.minute,
+                                    );
+                                  }),
+                                  calculateEndTime()
+                                }
+                            });
                   },
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 CustomField(
-                  hint: "3/02/2022",
-                  label: "Start Date",
-                  rightIcon: IconlyLight.calendar,
-                  onRightIconTap: () {
-                    showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime.now(),
-                        lastDate: DateTime.now().add(Duration(days: 365)));
-                  },
+                  hint: DateFormat.Hm().format(endTime),
+                  label: "End Time",
+                  enabled: false,
+                  rightIcon: IconlyLight.time_circle,
                 ),
                 SizedBox(
                   height: 20,
@@ -138,7 +180,9 @@ class _BookAppointmentState extends State<BookAppointment> {
                   title: "Next",
                   onPressed: () {
                     Get.dialog(RequestSent(onDone: () {
-                      Get.back();
+                      CustomerController controller = Get.find();
+                      controller.addJob();
+                      Get.toNamed(Routes.customerHomePage);
                     }));
                   },
                 ),
@@ -151,5 +195,14 @@ class _BookAppointmentState extends State<BookAppointment> {
         ),
       ),
     );
+  }
+
+  calculateEndTime() {
+    int h = int.parse(cleaningDuration.split(":").first);
+    int m = int.parse(cleaningDuration.split(":").last);
+
+    setState(() {
+      endTime = startTime.add(Duration(hours: h, minutes: m));
+    });
   }
 }

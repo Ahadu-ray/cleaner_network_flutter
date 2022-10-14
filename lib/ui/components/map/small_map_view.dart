@@ -55,15 +55,42 @@ class _SmallMapViewState extends State<SmallMapView>
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      decoration: AppTheme.mainCardDecoration2(),
       height: widget.height,
       width: widget.width,
-      child: GoogleMap(
-        initialCameraPosition: _initialCameraPosition,
-        myLocationButtonEnabled: true,
-        zoomControlsEnabled: true,
-        compassEnabled: false,
-        onMapCreated: (c) => _onMapCreated(c),
+      child: Stack(
+        children: [
+          GoogleMap(
+            initialCameraPosition: _initialCameraPosition,
+            myLocationButtonEnabled: true,
+            zoomControlsEnabled: true,
+            compassEnabled: true,
+            myLocationEnabled: true,
+            onMapCreated: (c) => _onMapCreated(c),
+          ),
+          Positioned(
+            left: 20,
+            bottom: 10,
+            child: Container(
+              width: 30.0,
+              height: 30.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: AppTheme.grey2,
+                    spreadRadius: 0,
+                    blurRadius: 6,
+                    offset: const Offset(1, 3),
+                  ),
+                ],
+              ),
+              child: Icon(IconlyBold.location, color: AppTheme.mainGreen),
+            ),
+          ),
+        ],
       ),
     );
   }

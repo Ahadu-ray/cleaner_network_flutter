@@ -93,38 +93,6 @@ class _ChooseMethodPageState extends State<ChooseMethodPage> {
                           ],
                         )),
                     SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                        decoration: AppTheme.fieldDecoration2(),
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                Radio(
-                                    value: "Cash",
-                                    groupValue: selectedType,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        selectedType = value.toString();
-                                      });
-                                    }),
-                                CustomText(
-                                  "Cash",
-                                  style: AppTheme.normalStyle()
-                                      .copyWith(fontWeight: FontWeight.w500),
-                                ),
-                              ],
-                            ),
-                            Image.asset(
-                              cash,
-                              width: 41,
-                            )
-                          ],
-                        )),
-                    SizedBox(
                       height: 48,
                     ),
                     CustomButton(

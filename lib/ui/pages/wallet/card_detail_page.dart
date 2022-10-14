@@ -6,6 +6,7 @@ import 'package:cleaner_network_flutter/ui/widgets/custom_field.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
 import 'package:cleaner_network_flutter/utils/constants/asset_constants.dart';
+import 'package:cleaner_network_flutter/utils/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
@@ -63,7 +64,7 @@ class _CardDetailPageState extends State<CardDetailPage> {
                         ),
                         InkWell(
                           onTap: () {
-                            showDatePicker(
+                            selectDate(
                                 context: context,
                                 initialDate: DateTime.now(),
                                 firstDate: DateTime.now(),

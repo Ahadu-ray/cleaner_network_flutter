@@ -6,6 +6,7 @@ import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_dropdown.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_field.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
+import 'package:cleaner_network_flutter/utils/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
@@ -51,7 +52,7 @@ class CustomerProfilePage extends StatelessWidget {
                 hint: "29/Jan/1998",
                 rightIcon: IconlyLight.calendar,
                 onRightIconTap: () {
-                  showDatePicker(
+                  selectDate(
                       context: context,
                       initialDate: DateTime.now(),
                       firstDate:
@@ -97,6 +98,14 @@ class CustomerProfilePage extends StatelessWidget {
                 height: 24,
               ),
               CustomDropdown(title: "Select City", choices: ["Aktau"]),
+              SizedBox(
+                height: 24,
+              ),
+              CustomDropdown(
+                title: "Change Language",
+                choices: ["English"],
+                hint: "English",
+              ),
               SizedBox(
                 height: 40,
               ),

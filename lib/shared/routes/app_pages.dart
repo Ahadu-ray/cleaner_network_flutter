@@ -1,5 +1,6 @@
 import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/ui/bindings/cleaner_bindings.dart';
+import 'package:cleaner_network_flutter/ui/bindings/customer_bindings.dart';
 import 'package:cleaner_network_flutter/ui/pages/auth/cleaner_auth/login_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/auth/customer_auth/login_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/auth/cleaner_auth/signup_page.dart';
@@ -47,7 +48,10 @@ abstract class AppPages {
 
     //main
     //customer
-    GetPage(name: Routes.customerHomePage, page: () => CustomerHomePage()),
+    GetPage(
+        name: Routes.customerHomePage,
+        page: () => CustomerHomePage(),
+        bindings: [CustomerBindings()]),
     GetPage(name: Routes.bookAppointment, page: () => BookAppointment()),
     GetPage(
       name: Routes.cleanersList,
