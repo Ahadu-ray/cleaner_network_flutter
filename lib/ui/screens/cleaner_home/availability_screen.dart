@@ -1,4 +1,5 @@
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
+import 'package:cleaner_network_flutter/ui/components/appbar_actions.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_appbar.dart';
 import 'package:cleaner_network_flutter/ui/components/custom_calendar.dart';
 import 'package:cleaner_network_flutter/ui/components/dialogs/add_available_time_dialog.dart';
@@ -26,6 +27,7 @@ class AvailabilityScreen extends StatelessWidget {
         title: "Available Time",
         withBg: true,
         hasBack: false,
+        action: AppbarActions(),
       ),
       withSpace: 138,
       child: Column(

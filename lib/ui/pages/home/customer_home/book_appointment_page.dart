@@ -114,7 +114,7 @@ class _BookAppointmentState extends State<BookAppointment> {
                   height: 20,
                 ),
                 CustomField(
-                  hint: DateFormat.d().format(startTime),
+                  hint: DateFormat("yyyy/MM/dd").format(startTime),
                   label: "Start Date",
                   rightIcon: IconlyLight.calendar,
                   onRightIconTap: () {

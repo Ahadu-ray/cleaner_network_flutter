@@ -27,6 +27,5 @@ abstract class Routes {
   static const onboardingPage = "/onboarding_page";
   static const bookingDetailPage = "/booking_detail_page";
   static const helpPage = "/help_page";
-  static const selectLanguagePage = "/selectLanguagePage";
   static const resetPasswordPage = "/reset_password_page";
 }

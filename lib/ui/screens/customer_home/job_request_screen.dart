@@ -25,8 +25,8 @@ class JobRequestsScreen extends StatelessWidget {
                     physics: BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
                       return JobRequestContainer(
-                        availCleaners: index == 0 ? 1 : null,
-                      );
+                          availCleaners: index == 0 ? 1 : null,
+                          type: "Searching");
                     }));
           } else {
             return EmptyDataWithSvg(

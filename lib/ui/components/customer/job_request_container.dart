@@ -135,7 +135,7 @@ class JobRequestContainer extends StatelessWidget {
                         ),
                       ),
                     SizedBox(
-                      height: 80,
+                      height: 20,
                     ),
                   ],
                 )

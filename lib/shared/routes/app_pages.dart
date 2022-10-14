@@ -20,7 +20,6 @@ import 'package:cleaner_network_flutter/ui/pages/home/customer_payment/booking_d
 import 'package:cleaner_network_flutter/ui/pages/home/customer_payment/customer_payment_options_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/location_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/onboarding_page.dart';
-import 'package:cleaner_network_flutter/ui/pages/select_language_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/wallet/card_detail_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/wallet/choose_method_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/wallet/set_amount_page.dart';
@@ -114,10 +113,6 @@ abstract class AppPages {
     GetPage(
       name: Routes.onboardingPage,
       page: () => OnBoardingPage(),
-    ),
-    GetPage(
-      name: Routes.selectLanguagePage,
-      page: () => SelectLanguagePage(),
     ),
     GetPage(
       name: Routes.helpPage,

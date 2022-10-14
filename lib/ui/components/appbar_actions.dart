@@ -45,24 +45,6 @@ class AppbarActions extends StatelessWidget {
                   child: InkWell(
                 child: Row(children: [
                   Icon(
-                    IconlyBold.setting,
-                    color: AppTheme.mainGreen,
-                  ),
-                  SizedBox(width: 10),
-                  CustomText(
-                    "Select Language",
-                    style: AppTheme.butText().copyWith(color: Colors.black),
-                  ),
-                ]),
-                onTap: () {
-                  Get.back();
-                  Get.toNamed(Routes.selectLanguagePage);
-                },
-              )),
-              PopupMenuItem(
-                  child: InkWell(
-                child: Row(children: [
-                  Icon(
                     Icons.help,
                     color: AppTheme.mainGreen,
                   ),
