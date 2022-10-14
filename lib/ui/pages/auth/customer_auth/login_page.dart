@@ -1,5 +1,6 @@
 import 'package:cleaner_network_flutter/shared/routes/app_routes.dart';
 import 'package:cleaner_network_flutter/shared/themes/app_theme.dart';
+import 'package:cleaner_network_flutter/ui/components/dialogs/enter_email_dialog.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_field.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_button.dart';
 import 'package:cleaner_network_flutter/ui/widgets/custom_text.dart';
@@ -156,10 +157,15 @@ class _CustomerLoginPageState extends State<CustomerLoginPage> {
                                   ))
                             ],
                           ),
-                          CustomText("Forgot Password",
-                              style: AppTheme.hintStyle().copyWith(
-                                color: AppTheme.mainGreen,
-                              ))
+                          InkWell(
+                            child: CustomText("Forgot Password",
+                                style: AppTheme.hintStyle().copyWith(
+                                  color: AppTheme.mainGreen,
+                                )),
+                            onTap: () {
+                              Get.bottomSheet(EnterEmailDialog());
+                            },
+                          )
                         ],
                       ),
                       SizedBox(

@@ -4,6 +4,7 @@ import 'package:cleaner_network_flutter/ui/pages/auth/cleaner_auth/login_page.da
 import 'package:cleaner_network_flutter/ui/pages/auth/customer_auth/login_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/auth/cleaner_auth/signup_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/auth/customer_auth/signup_page.dart';
+import 'package:cleaner_network_flutter/ui/pages/auth/reset_password_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/cleaner_home/cleaner_profile_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/cleaner_home/home_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/book_appointment_page.dart';
@@ -117,6 +118,10 @@ abstract class AppPages {
     GetPage(
       name: Routes.helpPage,
       page: () => HelpPage(),
+    ),
+    GetPage(
+      name: Routes.resetPasswordPage,
+      page: () => ResetPasswordPage(),
     ),
   ];
 }
