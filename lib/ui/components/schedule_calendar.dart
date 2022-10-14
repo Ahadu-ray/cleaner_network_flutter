@@ -7,8 +7,8 @@ import 'package:get/get.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class ScheduleCalendar extends StatefulWidget {
-  const ScheduleCalendar({Key? key}) : super(key: key);
-
+  ScheduleCalendar({Key? key, this.type = "Cleaner"}) : super(key: key);
+  String type;
   @override
   State<ScheduleCalendar> createState() => _ScheduleCalendarState();
 }
@@ -117,7 +117,9 @@ class _ScheduleCalendarState extends State<ScheduleCalendar> {
       onDaySelected: (first, sec) {
         if (first.difference(selectedDate).inHours > 0 &&
             first.difference(selectedDate).inHours < 24) {
-          Get.toNamed(Routes.schedulePage);
+          Get.toNamed(widget.type == "Customer"
+              ? Routes.customerSchedulePage
+              : Routes.cleanerSchedulePage);
         }
       },
       firstDay: DateTime.now().subtract(Duration(days: 365)),

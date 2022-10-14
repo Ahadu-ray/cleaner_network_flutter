@@ -69,7 +69,7 @@ class _OnBoardingPageState extends State<OnBoardingPage>
                       sub:
                           "You are at the right place. Choose your own price per hour, preferred hours, and distance you are willing to travel."),
                   OnBoardingScreen(
-                      image: onboarding2,
+                      image: onboarding3,
                       title: "Find a new Cleaner",
                       sub: "Choose by price, locality, or recommendation."),
                 ],

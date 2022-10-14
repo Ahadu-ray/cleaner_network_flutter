@@ -15,11 +15,12 @@ abstract class Routes {
   static const reviewCleanerPage = "/review_cleaner_page";
   static const customerPaymentOptionsPage = "/customer_payment_options_page";
   static const cleanerLiveLocation = "/cleaner_live_location";
+  static const customerSchedulePage = "/customer_schedule_page";
 
   //cleaner
   static const cleanerHomePage = "/home_cleaner";
   static const cleanerProfilePage = "/cleaner_profile";
-  static const schedulePage = "/schedule_page";
+  static const cleanerSchedulePage = "/cleaner_schedule_page";
 
   //common
   static const setAmountPage = "/set_amount";

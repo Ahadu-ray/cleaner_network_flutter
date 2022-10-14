@@ -8,11 +8,12 @@ import 'package:cleaner_network_flutter/ui/pages/auth/customer_auth/signup_page.
 import 'package:cleaner_network_flutter/ui/pages/auth/reset_password_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/cleaner_home/cleaner_profile_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/cleaner_home/home_page.dart';
-import 'package:cleaner_network_flutter/ui/pages/home/cleaner_home/schedule_page.dart';
+import 'package:cleaner_network_flutter/ui/pages/home/cleaner_home/cleaner_schedule_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/book_appointment_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/cleaner_list_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/cleaner_live_location_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/customer_profile_page.dart';
+import 'package:cleaner_network_flutter/ui/pages/home/customer_home/customer_schedule_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/help_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/home_page.dart';
 import 'package:cleaner_network_flutter/ui/pages/home/customer_home/review_cleaner_page.dart';
@@ -83,6 +84,11 @@ abstract class AppPages {
       page: () => CustomerProfilePage(),
     ),
 
+    GetPage(
+      name: Routes.customerSchedulePage,
+      page: () => CustomerSchedulePage(),
+    ),
+
     //cleaner
     GetPage(
         name: Routes.cleanerHomePage,
@@ -94,8 +100,8 @@ abstract class AppPages {
       page: () => CleanerProfilePage(),
     ),
     GetPage(
-      name: Routes.schedulePage,
-      page: () => SchedulePage(),
+      name: Routes.cleanerSchedulePage,
+      page: () => CleanerSchedulePage(),
     ),
     //common
     GetPage(

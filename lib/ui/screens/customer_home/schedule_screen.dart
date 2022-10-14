@@ -1,4 +1,5 @@
 import 'package:cleaner_network_flutter/ui/components/customer/job_request_container.dart';
+import 'package:cleaner_network_flutter/ui/components/schedule_calendar.dart';
 import 'package:flutter/material.dart';
 
 class CustomerScheduleScreen extends StatelessWidget {
@@ -6,18 +7,6 @@ class CustomerScheduleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-            child: ListView.builder(
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  return JobRequestContainer(
-                    pStatus: index == 0 ? "Pending" : "COD",
-                    type: "Appointed",
-                  );
-                }))
-      ],
-    );
+    return ScheduleCalendar(type: "Customer");
   }
 }
